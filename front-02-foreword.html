@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Foreword — Site Reliability Engineering, 2nd Edition</title>
+
+<style>
+@charset "utf-8";#sbo-rt-content html,#sbo-rt-content div,#sbo-rt-content div,#sbo-rt-content span,#sbo-rt-content applet,#sbo-rt-content object,#sbo-rt-content iframe,#sbo-rt-content h1,#sbo-rt-content h2,#sbo-rt-content h3,#sbo-rt-content h4,#sbo-rt-content h5,#sbo-rt-content h6,#sbo-rt-content p,#sbo-rt-content blockquote,#sbo-rt-content pre,#sbo-rt-content a,#sbo-rt-content abbr,#sbo-rt-content acronym,#sbo-rt-content address,#sbo-rt-content big,#sbo-rt-content cite,#sbo-rt-content code,#sbo-rt-content del,#sbo-rt-content dfn,#sbo-rt-content em,#sbo-rt-content img,#sbo-rt-content ins,#sbo-rt-content kbd,#sbo-rt-content q,#sbo-rt-content s,#sbo-rt-content samp,#sbo-rt-content small,#sbo-rt-content strike,#sbo-rt-content strong,#sbo-rt-content sub,#sbo-rt-content sup,#sbo-rt-content tt,#sbo-rt-content var,#sbo-rt-content b,#sbo-rt-content u,#sbo-rt-content i,#sbo-rt-content center,#sbo-rt-content dl,#sbo-rt-content dt,#sbo-rt-content dd,#sbo-rt-content ol,#sbo-rt-content ul,#sbo-rt-content li,#sbo-rt-content fieldset,#sbo-rt-content form,#sbo-rt-content label,#sbo-rt-content legend,#sbo-rt-content table,#sbo-rt-content caption,#sbo-rt-content tdiv,#sbo-rt-content tfoot,#sbo-rt-content thead,#sbo-rt-content tr,#sbo-rt-content th,#sbo-rt-content td,#sbo-rt-content article,#sbo-rt-content aside,#sbo-rt-content canvas,#sbo-rt-content details,#sbo-rt-content embed,#sbo-rt-content figure,#sbo-rt-content figcaption,#sbo-rt-content footer,#sbo-rt-content header,#sbo-rt-content hgroup,#sbo-rt-content menu,#sbo-rt-content nav,#sbo-rt-content output,#sbo-rt-content ruby,#sbo-rt-content section,#sbo-rt-content summary,#sbo-rt-content time,#sbo-rt-content mark,#sbo-rt-content audio,#sbo-rt-content video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}#sbo-rt-content article,#sbo-rt-content aside,#sbo-rt-content details,#sbo-rt-content figcaption,#sbo-rt-content figure,#sbo-rt-content footer,#sbo-rt-content header,#sbo-rt-content hgroup,#sbo-rt-content menu,#sbo-rt-content nav,#sbo-rt-content section{display:block}#sbo-rt-content div{line-height:1}#sbo-rt-content ol,#sbo-rt-content ul{list-style:none}#sbo-rt-content blockquote,#sbo-rt-content q{quotes:none}#sbo-rt-content blockquote:before,#sbo-rt-content blockquote:after,#sbo-rt-content q:before,#sbo-rt-content q:after{content:none}#sbo-rt-content table{border-collapse:collapse;border-spacing:0}@page{margin:5px !important}#sbo-rt-content p{margin:10px 0 0;line-height:125%;text-align:left}#sbo-rt-content p.byline{text-align:left;margin:-33px auto 35px;font-style:italic;font-weight:bold}#sbo-rt-content div.preface p+p.byline,#sbo-rt-content div.preface p.byline.cont+p.byline:not(.cont){margin:1em 0 0 !important}#sbo-rt-content div.preface p.byline+p.byline{margin:0 !important}#sbo-rt-content div.sect1>p.byline{margin:-.25em 0 1em}#sbo-rt-content div.sect1>p.byline+p.byline{margin-top:-1em}#sbo-rt-content em{font-style:italic;font-family:inherit}#sbo-rt-content em strong,#sbo-rt-content strong em{font-weight:bold;font-style:italic;font-family:inherit}#sbo-rt-content strong,#sbo-rt-content span.bold{font-weight:bold}#sbo-rt-content em.replaceable{font-style:italic}#sbo-rt-content strong.userinput{font-weight:bold;font-style:normal}#sbo-rt-content span.bolditalic{font-weight:bold;font-style:italic}#sbo-rt-content a.ulink,#sbo-rt-content a.xref,#sbo-rt-content a.email,#sbo-rt-content a.link,#sbo-rt-content a{text-decoration:none;color:#8e0012}#sbo-rt-content span.lineannotation{font-style:italic;color:#a62a2a;font-family:serif}#sbo-rt-content span.underline{text-decoration:underline}#sbo-rt-content span.strikethrough{text-decoration:line-through}#sbo-rt-content span.smallcaps{font-variant:small-caps}#sbo-rt-content span.cursor{background:#000;color:#fff}#sbo-rt-content span.smaller{font-size:75%}#sbo-rt-content .boxedtext,#sbo-rt-content .keycap{border-style:solid;border-width:1px;border-color:#000;padding:1px}#sbo-rt-content span.gray50{color:#7F7F7F;}#sbo-rt-content p img,#sbo-rt-content pre img,#sbo-rt-content figcaption img,#sbo-rt-content blockquote img,#sbo-rt-content dt img,#sbo-rt-content div.figure h6 img{height:1em !important;width:1em !important;max-height:1em !important;line-height:0 !important;margin:0 0 -1px !important}#sbo-rt-content figcaption img,#sbo-rt-content div.figure h6 img{padding:0 2px !important}#sbo-rt-content h1,#sbo-rt-content div.toc-title,#sbo-rt-content h2,#sbo-rt-content h3,#sbo-rt-content h4,#sbo-rt-content h5{-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;font-weight:bold;text-align:left;page-break-after:avoid !important;font-family:sans-serif,"DejaVuSans"}#sbo-rt-content div.toc-title{font-size:1.5em;margin-top:20px !important;margin-bottom:30px !important}#sbo-rt-content section[data-type="sect1"] h1{font-size:1.3em;color:#8e0012;margin:40px 0 8px 0}#sbo-rt-content section[data-type="sect2"] h2{font-size:1.1em;margin:30px 0 8px 0 !important}#sbo-rt-content section[data-type="sect3"] h3{font-size:1em;color:#555;margin:20px 0 8px 0 !important}#sbo-rt-content section[data-type="sect4"] h4{font-size:1em;font-weight:normal;font-style:italic;margin:15px 0 6px 0 !important}#sbo-rt-content section[data-type="chapter"]>div>h1,#sbo-rt-content section[data-type="preface"]>div>h1,#sbo-rt-content section[data-type="appendix"]>div>h1,#sbo-rt-content section[data-type="glossary"]>div>h1,#sbo-rt-content section[data-type="bibliography"]>div>h1,#sbo-rt-content section[data-type="afterword"]>div>h1,#sbo-rt-content section[data-type="index"]>div>h1{font-size:2em;line-height:1;margin-bottom:50px;color:#000;padding-bottom:10px;border-bottom:1px solid #000}#sbo-rt-content span.label,#sbo-rt-content span.keep-together{font-size:inherit;font-weight:inherit}#sbo-rt-content div[data-type="part"]>h1{font-size:2em;text-align:center;margin-top:0 !important;margin-bottom:50px;padding:50px 0 10px 0;border-bottom:1px solid #000}#sbo-rt-content img.width-ninety{width:90%}#sbo-rt-content img{max-width:95%;margin:0 auto;padding:0}#sbo-rt-content div.figure{background-color:transparent;text-align:center !important;margin:15px auto !important;page-break-inside:avoid}#sbo-rt-content figure{margin:15px auto !important;page-break-inside:avoid}#sbo-rt-content div.figure h6,#sbo-rt-content figure h6,#sbo-rt-content figure figcaption{font-size:.9rem !important;text-align:center;font-weight:normal !important;font-style:italic;font-family:serif !important;text-transform:none !important;letter-spacing:normal !important;color:#000;padding-top:.25em !important;margin-top:0 !important;page-break-before:avoid}#sbo-rt-content div.informalfigure{text-align:center !important;padding:5px 0 !important}#sbo-rt-content div.sidebar{margin:15px 0 10px 0 !important;border:1px solid #DCDCDC;background-color:#F7F7F7;padding:15px !important;page-break-inside:avoid}#sbo-rt-content aside[data-type="sidebar"]{margin:15px 0 10px 0 !important;page-break-inside:avoid}#sbo-rt-content div.sidebar-title,#sbo-rt-content div.sidebar h1,#sbo-rt-content div.sidebar h5,#sbo-rt-content aside[data-type="sidebar"] h1,#sbo-rt-content aside[data-type="sidebar"] h5{font-weight:bold;font-size:1em;font-family:sans-serif;text-transform:uppercase;letter-spacing:1px;text-align:center;margin:4px 0 6px 0 !important;page-break-inside:avoid}#sbo-rt-content div.sidebar ol,#sbo-rt-content div.sidebar ul,#sbo-rt-content aside[data-type="sidebar"] ol,#sbo-rt-content aside[data-type="sidebar"] ul{margin-left:1.25em !important}#sbo-rt-content div.sidebar div.figure p.title,#sbo-rt-content aside[data-type="sidebar"] figcaption,#sbo-rt-content div.sidebar div.informalfigure div.caption{font-size:90%;text-align:center;font-weight:normal;font-style:italic;font-family:serif !important;color:#000;padding:5px !important;page-break-before:avoid;page-break-after:avoid}#sbo-rt-content div.sidebar div.tip,#sbo-rt-content div.sidebar div[data-type="tip"],#sbo-rt-content div.sidebar div.note,#sbo-rt-content div.sidebar div[data-type="note"],#sbo-rt-content div.sidebar div.warning,#sbo-rt-content div.sidebar div[data-type="warning"],#sbo-rt-content div.sidebar div[data-type="caution"],#sbo-rt-content div.sidebar div[data-type="important"]{margin:20px auto 20px auto !important;font-size:90%;width:85%}#sbo-rt-content aside[data-type="sidebar"] p.byline{font-size:90%;font-weight:bold;font-style:italic;text-align:center;text-indent:0;margin:5px auto 6px;page-break-after:avoid}#sbo-rt-content pre{white-space:pre-wrap;font-family:"Ubuntu Mono",monospace;margin:25px 0 25px 20px;font-size:85%;display:block;-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;overflow-wrap:break-word}#sbo-rt-content pre code{font-size:inherit !important}#sbo-rt-content pre+pre{margin-top:-25px !important}#sbo-rt-content div.note pre.programlisting,#sbo-rt-content div.tip pre.programlisting,#sbo-rt-content div.warning pre.programlisting,#sbo-rt-content div.caution pre.programlisting,#sbo-rt-content div.important pre.programlisting{margin-bottom:0}#sbo-rt-content code{font-family:"Ubuntu Mono",monospace;-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;overflow-wrap:break-word}#sbo-rt-content code strong em,#sbo-rt-content code em strong,#sbo-rt-content pre em strong,#sbo-rt-content pre strong em,#sbo-rt-content strong code em code,#sbo-rt-content em code strong code,#sbo-rt-content span.bolditalic code{font-weight:bold;font-style:italic;font-family:"Ubuntu Mono BoldItal",monospace}#sbo-rt-content code em,#sbo-rt-content em code,#sbo-rt-content pre em,#sbo-rt-content em.replaceable{font-family:"Ubuntu Mono Ital",monospace;font-style:italic}#sbo-rt-content code strong,#sbo-rt-content strong code,#sbo-rt-content pre strong,#sbo-rt-content strong.userinput{font-family:"Ubuntu Mono Bold",monospace;font-weight:bold}#sbo-rt-content div[data-type="example"]{margin:10px 0 15px 0 !important}#sbo-rt-content div[data-type="example"] h1,#sbo-rt-content div[data-type="example"] h2,#sbo-rt-content div[data-type="example"] h3,#sbo-rt-content div[data-type="example"] h4,#sbo-rt-content div[data-type="example"] h5,#sbo-rt-content div[data-type="example"] h6{font-style:italic;font-weight:normal;text-align:left !important;text-transform:none !important;font-family:serif !important;margin:10px 0 5px 0 !important;border-bottom:1px solid #000}#sbo-rt-content li pre{line-height:1;margin-top:0}#sbo-rt-content li pre.example{padding:10px 0 !important}#sbo-rt-content div[data-type="example"] pre[data-type="programlisting"],#sbo-rt-content div[data-type="example"] pre[data-type="screen"]{margin:0}#sbo-rt-content section[data-type="titlepage"]>div>h1{font-size:2em;margin:50px 0 10px 0 !important;line-height:1;text-align:center}#sbo-rt-content section[data-type="titlepage"] h2,#sbo-rt-content section[data-type="titlepage"] p.subtitle,#sbo-rt-content section[data-type="titlepage"] p[data-type="subtitle"]{font-size:1.3em;font-weight:normal;text-align:center;margin-top:.5em;color:#555}#sbo-rt-content section[data-type="titlepage"]>div>h2[data-type="author"],#sbo-rt-content section[data-type="titlepage"] p.author{font-size:1.3em;font-family:serif !important;font-weight:bold;margin:50px 0 !important;text-align:center}#sbo-rt-content section[data-type="titlepage"] p.edition{text-align:center;text-transform:uppercase;margin-top:2em}#sbo-rt-content section[data-type="titlepage"]{text-align:center}#sbo-rt-content section[data-type="titlepage"]:after{content:url(css_assets/titlepage_footer_ebook.png);margin:0 auto;max-width:80%}#sbo-rt-content div.book div.titlepage div.publishername{margin-top:60%;margin-bottom:20px;text-align:center;font-size:1.25em}#sbo-rt-content div.book div.titlepage div.locations p{margin:0;text-align:center}#sbo-rt-content div.book div.titlepage div.locations p.cities{font-size:80%;text-align:center;margin-top:5px}#sbo-rt-content section.preface[title="Dedication"]>div.titlepage h2.title{text-align:center;text-transform:uppercase;font-size:1.5em;margin-top:50px;margin-bottom:50px}#sbo-rt-content ul.stafflist{margin:15px 0 15px 20px !important}#sbo-rt-content ul.stafflist li{list-style-type:none;padding:5px 0}#sbo-rt-content ul.printings li{list-style-type:none}#sbo-rt-content section.preface[title="Dedication"] p{font-style:italic;text-align:center}#sbo-rt-content div.colophon h1.title{font-size:1.3em;margin:0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon h2.subtitle{margin:0 !important;color:#000;font-family:serif !important;font-size:1em;font-weight:normal}#sbo-rt-content div.colophon div.author h3.author{font-size:1.1em;font-family:serif !important;margin:10px 0 0 !important;font-weight:normal}#sbo-rt-content div.colophon div.editor h4,#sbo-rt-content div.colophon div.editor h3.editor{color:#000;font-size:.8em;margin:15px 0 0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon div.editor h3.editor{font-size:.8em;margin:0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon div.publisher{margin-top:10px}#sbo-rt-content div.colophon div.publisher p,#sbo-rt-content div.colophon div.publisher span.publishername{margin:0;font-size:.8em}#sbo-rt-content div.legalnotice p,#sbo-rt-content div.timestamp p{font-size:.8em}#sbo-rt-content div.timestamp p{margin-top:10px}#sbo-rt-content div.colophon[title="About the Author"] h1.title,#sbo-rt-content div.colophon[title="Colophon"] h1.title{font-size:1.5em;margin:0 !important;font-family:sans-serif !important}#sbo-rt-content section.chapter div.titlepage div.author{margin:10px 0 10px 0}#sbo-rt-content section.chapter div.titlepage div.author div.affiliation{font-style:italic}#sbo-rt-content div.attribution{margin:5px 0 0 50px !important}#sbo-rt-content h3.author span.orgname{display:none}#sbo-rt-content div.epigraph{margin:10px 0 10px 20px !important;page-break-inside:avoid;font-size:90%}#sbo-rt-content div.epigraph p{font-style:italic}#sbo-rt-content blockquote,#sbo-rt-content div.blockquote{margin:10px !important;page-break-inside:avoid;font-size:95%}#sbo-rt-content blockquote p,#sbo-rt-content div.blockquote p{font-style:italic;margin:.75em 0 0 !important}#sbo-rt-content blockquote div.attribution,#sbo-rt-content blockquote p[data-type="attribution"]{margin:5px 0 10px 30px !important;text-align:right;width:80%}#sbo-rt-content blockquote div.attribution p,#sbo-rt-content blockquote p[data-type="attribution"]{font-style:normal;margin-top:5px}#sbo-rt-content blockquote div.attribution p:before,#sbo-rt-content blockquote p[data-type="attribution"]:before{font-style:normal;content:"—";-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none}#sbo-rt-content p.right{text-align:right;margin:0}#sbo-rt-content div[data-type="footnotes"]{border-top:1px solid black;margin-top:2em}#sbo-rt-content sub,#sbo-rt-content sup{font-size:75%;line-height:0}#sbo-rt-content sup{vertical-align:super !important}#sbo-rt-content sub{vertical-align:sub}#sbo-rt-content p[data-type="footnote"]{font-size:90% !important;line-height:1.2em !important;margin-left:2.5em !important;text-indent:-2.3em !important}#sbo-rt-content p[data-type="footnote"] sup:first-child{display:inline-block !important;position:static !important;width:2em !important;text-align:right !important;font-size:100% !important;padding-right:.5em !important;top:-2px !important}#sbo-rt-content p[data-type="footnote"] a[href$="-marker"]{font-family:sans-serif !important;font-size:90% !important;color:#8e0012 !important}#sbo-rt-content p[data-type="footnote"] a[data-type="xref"]{margin:0 !important;padding:0 !important;text-indent:0 !important}#sbo-rt-content a[data-type="noteref"]{font-family:sans-serif !important;color:#8e0012;margin-left:0;padding-left:0}#sbo-rt-content div.refentry p.refname{font-size:1em;font-family:sans-serif,"DejaVuSans";font-weight:bold;margin-bottom:5px;overflow:auto;width:100%}#sbo-rt-content div.refentry{width:100%;display:block;margin-top:2em}#sbo-rt-content div.refsynopsisdiv{display:block;clear:both}#sbo-rt-content div.refentry header{page-break-inside:avoid !important;display:block;break-inside:avoid !important;padding-top:0;border-bottom:1px solid #000}#sbo-rt-content div.refsect1 h6{font-size:.9em;font-family:sans-serif,"DejaVuSans";font-weight:bold}#sbo-rt-content div.refsect1{margin-top:3em}#sbo-rt-content ul.references li{list-style-type:none !important;text-indent:-24px !important}#sbo-rt-content dl{margin-bottom:1.5em !important}#sbo-rt-content dt{padding-top:10px !important;padding-bottom:0 !important;line-height:1.25rem;font-style:italic}#sbo-rt-content dl.calloutlist dt{padding-top:0 !important;line-height:0 !important;margin-bottom:-1.5em !important;}#sbo-rt-content dt code{font-style:normal !important}#sbo-rt-content div.preface dt em code{font-style:italic !important}#sbo-rt-content dd{margin:10px 0 .25em 1.5em !important;line-height:1.65em !important;font-family:"Noto serif",serif}#sbo-rt-content dd p{padding:0 !important;margin:0 0 10px !important}#sbo-rt-content dd ol,#sbo-rt-content dd ul{padding-left:.25em !important;margin-top:0;margin-bottom:0}#sbo-rt-content dd li{margin-top:0 !important;margin-bottom:0 !important;padding-top:0;padding-bottom:.5em;line-height:1 !important}#sbo-rt-content dd li:last-child{padding-bottom:0 !important}#sbo-rt-content dd,#sbo-rt-content li{text-align:left}#sbo-rt-content ul,#sbo-rt-content ul>li{list-style-type:disc}#sbo-rt-content ol ul,#sbo-rt-content ol ul>li,#sbo-rt-content ul ol ul,#sbo-rt-content ul ol ul>li,#sbo-rt-content ul ul,#sbo-rt-content ul ul>li{list-style-type:"– " !important}#sbo-rt-content ul ul ul,#sbo-rt-content ul ul ul>li{list-style-type:circle}#sbo-rt-content ol,#sbo-rt-content ol>li,#sbo-rt-content ol ul ol,#sbo-rt-content ol ul ol>li,#sbo-rt-content ul ol,#sbo-rt-content ul ol>li{list-style-type:decimal}#sbo-rt-content ol ol,#sbo-rt-content ol ol>li{list-style-type:lower-alpha !important}#sbo-rt-content ol ol ol,#sbo-rt-content ol ol ol>li{list-style-type:lower-roman}#sbo-rt-content ul ol li,#sbo-rt-content ol ol li{list-style:lower-alpha !important}#sbo-rt-content ol,#sbo-rt-content ul{list-style-position:outside;margin:15px 0 15px 1.25em;padding-left:2.25em}#sbo-rt-content ol li,#sbo-rt-content ul li{margin:.5em 0 .65em;line-height:125%}#sbo-rt-content div.orderedlistalpha{list-style-type:upper-alpha}#sbo-rt-content table.simplelist,#sbo-rt-content ul.simplelist{margin:15px 0 15px 20px !important}#sbo-rt-content ul.simplelist li{list-style-type:none !important;padding:5px 0}#sbo-rt-content table.simplelist td{border:none}#sbo-rt-content table.simplelist tr{border-bottom:none}#sbo-rt-content table.simplelist tr:nth-of-type(even){background-color:transparent}#sbo-rt-content dl.calloutlist p:first-child{margin-top:-25px !important}#sbo-rt-content dl.calloutlist dd{padding-left:0;margin-top:-25px}#sbo-rt-content dl.calloutlist img,#sbo-rt-content a.co img{padding:0}#sbo-rt-content div.toc ol{margin-top:8px !important;margin-bottom:8px !important;margin-left:0 !important;padding-left:0 !important}#sbo-rt-content div.toc ol ol{margin-left:30px !important;padding-left:0 !important}#sbo-rt-content div.toc ol li{list-style-type:none}#sbo-rt-content div.toc a{color:#8e0012}#sbo-rt-content div.toc ol a{font-size:1em;font-weight:bold}#sbo-rt-content div.toc ol>li>ol a{font-weight:bold;font-size:1em}#sbo-rt-content div.toc ol>li>ol>li>ol a{text-decoration:none;font-weight:normal;font-size:1em}#sbo-rt-content div.tip,#sbo-rt-content div[data-type="tip"],#sbo-rt-content div.note,#sbo-rt-content div[data-type="note"],#sbo-rt-content div.warning,#sbo-rt-content div[data-type="warning"],#sbo-rt-content div[data-type="caution"],#sbo-rt-content div[data-type="important"]{margin:30px !important;font-size:90%;padding:10px 8px 20px 8px !important;page-break-inside:avoid}#sbo-rt-content div.tip ol,#sbo-rt-content div.tip ul,#sbo-rt-content div[data-type="tip"] ol,#sbo-rt-content div[data-type="tip"] ul,#sbo-rt-content div.note ol,#sbo-rt-content div.note ul,#sbo-rt-content div[data-type="note"] ol,#sbo-rt-content div[data-type="note"] ul,#sbo-rt-content div.warning ol,#sbo-rt-content div.warning ul,#sbo-rt-content div[data-type="warning"] ol,#sbo-rt-content div[data-type="warning"] ul,#sbo-rt-content div[data-type="caution"] ol,#sbo-rt-content div[data-type="caution"] ul,#sbo-rt-content div[data-type="important"] ol,#sbo-rt-content div[data-type="important"] ul{margin-left:1.5em !important}#sbo-rt-content div.tip,#sbo-rt-content div[data-type="tip"],#sbo-rt-content div.note,#sbo-rt-content div[data-type="note"]{border:1px solid #BEBEBE;background-color:transparent}#sbo-rt-content div.warning,#sbo-rt-content div[data-type="warning"],#sbo-rt-content div[data-type="caution"],#sbo-rt-content div[data-type="important"]{border:1px solid #BC8F8F}#sbo-rt-content div.tip h3,#sbo-rt-content div[data-type="tip"] h6,#sbo-rt-content div[data-type="tip"] h1,#sbo-rt-content div.note h3,#sbo-rt-content div[data-type="note"] h6,#sbo-rt-content div[data-type="note"] h1,#sbo-rt-content div.warning h3,#sbo-rt-content div[data-type="warning"] h6,#sbo-rt-content div[data-type="warning"] h1,#sbo-rt-content div[data-type="caution"] h6,#sbo-rt-content div[data-type="caution"] h1,#sbo-rt-content div[data-type="important"] h1,#sbo-rt-content div[data-type="important"] h6{font-weight:bold;font-size:110%;font-family:sans-serif !important;text-transform:uppercase;letter-spacing:1px;text-align:center;margin:4px 0 6px !important}#sbo-rt-content div[data-type="tip"] figure h6,#sbo-rt-content div[data-type="note"] figure h6,#sbo-rt-content div[data-type="warning"] figure h6,#sbo-rt-content div[data-type="caution"] figure h6,#sbo-rt-content div[data-type="important"] figure h6{font-family:serif !important}#sbo-rt-content div.tip h3,#sbo-rt-content div[data-type="tip"] h6,#sbo-rt-content div.note h3,#sbo-rt-content div[data-type="note"] h6,#sbo-rt-content div[data-type="tip"] h1,#sbo-rt-content div[data-type="note"] h1{color:#737373}#sbo-rt-content div.warning h3,#sbo-rt-content div[data-type="warning"] h6,#sbo-rt-content div[data-type="caution"] h6,#sbo-rt-content div[data-type="important"] h6,#sbo-rt-content div[data-type="warning"] h1,#sbo-rt-content div[data-type="caution"] h1,#sbo-rt-content div[data-type="important"] h1{color:#C67171}#sbo-rt-content div.sect1[title="Safari® Books Online"] div.note,#sbo-rt-content div.safarienabled{background-color:transparent;margin:8px 0 0 !important;border:0 solid #BEBEBE;font-size:100%;padding:0 !important;page-break-inside:avoid}#sbo-rt-content div.sect1[title="Safari® Books Online"] div.note h3,#sbo-rt-content div.safarienabled h6{display:none}#sbo-rt-content .author-date-bib li{list-style-type:none;margin-left:0;padding-left:18pt;text-indent:-18pt}#sbo-rt-content div.table,#sbo-rt-content table{margin:15px 0 30px 0 !important;max-width:100%;border:none !important;background:none;display:block;overflow-x:auto}#sbo-rt-content div.table,#sbo-rt-content div.informaltable,#sbo-rt-content table{page-break-inside:avoid}#sbo-rt-content table li{margin:10px 0 0 .25em !important}#sbo-rt-content tr,#sbo-rt-content tr td{border-bottom:1px solid #c3c3c3}#sbo-rt-content thead td,#sbo-rt-content thead th{border-bottom:#9d9d9d 1px solid !important;border-top:#9d9d9d 1px solid !important;vertical-align:bottom}#sbo-rt-content tr:nth-of-type(even){background-color:#f1f6fc}#sbo-rt-content thead,#sbo-rt-content tbody th{font-family:sans-serif;font-weight:bold}#sbo-rt-content td,#sbo-rt-content th{display:table-cell;padding:.5em !important;text-align:left !important;vertical-align:top;font-size:95% !important;min-width:6rem}#sbo-rt-content div.informaltable table{margin:10px auto !important}#sbo-rt-content div.informaltable table tr{border-bottom:none}#sbo-rt-content div.informaltable table tr:nth-of-type(even){background-color:transparent}#sbo-rt-content div.informaltable td,#sbo-rt-content div.informaltable th{border:#9d9d9d 1px solid}#sbo-rt-content div.table-title,#sbo-rt-content table caption{font-weight:normal;font-style:italic;font-family:serif;font-size:1em;margin:10px 0 10px 0 !important;padding:0;page-break-after:avoid;text-align:left !important}#sbo-rt-content table pre{font-size:95%;margin:0 !important;padding:0 !important}#sbo-rt-content table code{font-size:smaller;word-break:break-all}#sbo-rt-content table.border td{border-bottom:.25pt solid #000}#sbo-rt-content table.border tbody>tr:last-child>td{border-bottom:transparent}#sbo-rt-content table.stafflist_table{text-align:left;border:none;margin:0}#sbo-rt-content table.stafflist_table tr,#sbo-rt-content table.stafflist_table td,#sbo-rt-content table.stafflist_table th{border-bottom:none !important;border-top:none !important;font-size:1em;margin:0}#sbo-rt-content table.stafflist_table td{margin:0;padding:0 1rem 0 0}#sbo-rt-content table.stafflist_table tr:nth-of-type(even){background-color:transparent}#sbo-rt-content div.equation,#sbo-rt-content div[data-type="equation"]{margin:10px 0 15px 0 !important}#sbo-rt-content div.equation-title,#sbo-rt-content div[data-type="equation"] h5{font-style:italic;font-weight:normal;font-family:serif !important;font-size:90%;margin:20px 0 10px 0 !important;page-break-after:avoid}#sbo-rt-content div.equation-contents{margin-left:20px}#sbo-rt-content div[data-type="equation"] math{font-size:calc(.35em + 1vw)}#sbo-rt-content span.inlinemediaobject{height:.85em;display:inline-block;margin-bottom:.2em}#sbo-rt-content span.inlinemediaobject img{margin:0;height:.85em}#sbo-rt-content div.informalequation{margin:20px 0 20px 20px;width:75%}#sbo-rt-content div.informalequation img{width:75%}#sbo-rt-content div.index{text-indent:0}#sbo-rt-content div.index h3{padding:.25em;margin-top:1em !important;background-color:#F0F0F0}#sbo-rt-content div.index li{line-height:130%;list-style-type:none}#sbo-rt-content div.index a.indexterm{color:#8e0012 !important}#sbo-rt-content div.index ul{margin-left:0 !important;padding-left:0 !important}#sbo-rt-content div.index ul ul{margin-left:2em !important;margin-top:0 !important}#sbo-rt-content code.boolean,#sbo-rt-content .navy{color:rgb(0,0,128);}#sbo-rt-content code.character,#sbo-rt-content .olive{color:rgb(128,128,0);}#sbo-rt-content code.comment,#sbo-rt-content .blue{color:rgb(0,0,255);}#sbo-rt-content code.conditional,#sbo-rt-content .limegreen{color:rgb(50,205,50);}#sbo-rt-content code.constant,#sbo-rt-content .darkorange{color:rgb(255,140,0);}#sbo-rt-content code.debug,#sbo-rt-content .darkred{color:rgb(139,0,0);}#sbo-rt-content code.define,#sbo-rt-content .darkgoldenrod,#sbo-rt-content .gold{color:rgb(184,134,11);}#sbo-rt-content code.delimiter,#sbo-rt-content .dimgray{color:rgb(105,105,105);}#sbo-rt-content code.error,#sbo-rt-content .red{color:rgb(255,0,0);}#sbo-rt-content code.exception,#sbo-rt-content .salmon{color:rgb(250,128,11);}#sbo-rt-content code.float,#sbo-rt-content .steelblue{color:rgb(70,130,180);}#sbo-rt-content pre code.function,#sbo-rt-content .green{color:rgb(0,128,0);}#sbo-rt-content code.identifier,#sbo-rt-content .royalblue{color:rgb(65,105,225);}#sbo-rt-content code.ignore,#sbo-rt-content .gray{color:rgb(128,128,128);}#sbo-rt-content code.include,#sbo-rt-content .purple{color:rgb(128,0,128);}#sbo-rt-content code.keyword,#sbo-rt-content .sienna{color:rgb(160,82,45);}#sbo-rt-content code.label,#sbo-rt-content .deeppink{color:rgb(255,20,147);}#sbo-rt-content code.macro,#sbo-rt-content .orangered{color:rgb(255,69,0);}#sbo-rt-content code.number,#sbo-rt-content .brown{color:rgb(165,42,42);}#sbo-rt-content code.operator,#sbo-rt-content .black{color:#000;}#sbo-rt-content code.preCondit,#sbo-rt-content .teal{color:rgb(0,128,128);}#sbo-rt-content code.preProc,#sbo-rt-content .fuschia{color:rgb(255,0,255);}#sbo-rt-content code.repeat,#sbo-rt-content .indigo{color:rgb(75,0,130);}#sbo-rt-content code.special,#sbo-rt-content .saddlebrown{color:rgb(139,69,19);}#sbo-rt-content code.specialchar,#sbo-rt-content .magenta{color:rgb(255,0,255);}#sbo-rt-content code.specialcomment,#sbo-rt-content .seagreen{color:rgb(46,139,87);}#sbo-rt-content code.statement,#sbo-rt-content .forestgreen{color:rgb(34,139,34);}#sbo-rt-content code.storageclass,#sbo-rt-content .plum{color:rgb(221,160,221);}#sbo-rt-content code.string,#sbo-rt-content .darkred{color:rgb(139,0,0);}#sbo-rt-content code.structure,#sbo-rt-content .chocolate{color:rgb(210,106,30);}#sbo-rt-content code.tag,#sbo-rt-content .darkcyan{color:rgb(0,139,139);}#sbo-rt-content code.todo,#sbo-rt-content .black{color:#000;}#sbo-rt-content code.type,#sbo-rt-content .mediumslateblue{color:rgb(123,104,238);}#sbo-rt-content code.typedef,#sbo-rt-content .darkgreen{color:rgb(0,100,0);}#sbo-rt-content code.underlined{text-decoration:underline;}#sbo-rt-content pre code.hll{background-color:#ffc}#sbo-rt-content pre code.c{color:#09F;font-style:italic}#sbo-rt-content pre code.err{color:#A00}#sbo-rt-content pre code.k{color:#069;font-weight:bold}#sbo-rt-content pre code.o{color:#555}#sbo-rt-content pre code.cm{color:#35586C;font-style:italic}#sbo-rt-content pre code.cp{color:#099}#sbo-rt-content pre code.c1{color:#35586C;font-style:italic}#sbo-rt-content pre code.cs{color:#35586C;font-weight:bold;font-style:italic}#sbo-rt-content pre code.gd{background-color:#FCC}#sbo-rt-content pre code.ge{font-style:italic}#sbo-rt-content pre code.gr{color:#F00}#sbo-rt-content pre code.gh{color:#030;font-weight:bold}#sbo-rt-content pre code.gi{background-color:#CFC}#sbo-rt-content pre code.go{color:#000}#sbo-rt-content pre code.gp{color:#009;font-weight:bold}#sbo-rt-content pre code.gs{font-weight:bold}#sbo-rt-content pre code.gu{color:#030;font-weight:bold}#sbo-rt-content pre code.gt{color:#9C6}#sbo-rt-content pre code.kc{color:#069;font-weight:bold}#sbo-rt-content pre code.kd{color:#069;font-weight:bold}#sbo-rt-content pre code.kn{color:#069;font-weight:bold}#sbo-rt-content pre code.kp{color:#069}#sbo-rt-content pre code.kr{color:#069;font-weight:bold}#sbo-rt-content pre code.kt{color:#078;font-weight:bold}#sbo-rt-content pre code.m{color:#F60}#sbo-rt-content pre code.s{color:#C30}#sbo-rt-content pre code.na{color:#309}#sbo-rt-content pre code.nb{color:#366}#sbo-rt-content pre code.nc{color:#0A8;font-weight:bold}#sbo-rt-content pre code.no{color:#360}#sbo-rt-content pre code.nd{color:#99F}#sbo-rt-content pre code.ni{color:#999;font-weight:bold}#sbo-rt-content pre code.ne{color:#C00;font-weight:bold}#sbo-rt-content pre code.nf{color:#C0F}#sbo-rt-content pre code.nl{color:#99F}#sbo-rt-content pre code.nn{color:#0CF;font-weight:bold}#sbo-rt-content pre code.nt{color:#309;font-weight:bold}#sbo-rt-content pre code.nv{color:#033}#sbo-rt-content pre code.ow{color:#000;font-weight:bold}#sbo-rt-content pre code.w{color:#bbb}#sbo-rt-content pre code.mf{color:#F60}#sbo-rt-content pre code.mh{color:#F60}#sbo-rt-content pre code.mi{color:#F60}#sbo-rt-content pre code.mo{color:#F60}#sbo-rt-content pre code.sb{color:#C30}#sbo-rt-content pre code.sc{color:#C30}#sbo-rt-content pre code.sd{color:#C30;font-style:italic}#sbo-rt-content pre code.s2{color:#C30}#sbo-rt-content pre code.se{color:#C30;font-weight:bold}#sbo-rt-content pre code.sh{color:#C30}#sbo-rt-content pre code.si{color:#A00}#sbo-rt-content pre code.sx{color:#C30}#sbo-rt-content pre code.sr{color:#3AA}#sbo-rt-content pre code.s1{color:#C30}#sbo-rt-content pre code.ss{color:#A60}#sbo-rt-content pre code.bp{color:#366}#sbo-rt-content pre code.vc{color:#033}#sbo-rt-content pre code.vg{color:#033}#sbo-rt-content pre code.vi{color:#033}#sbo-rt-content pre code.il{color:#F60}#sbo-rt-content pre code.g{color:#050}#sbo-rt-content pre code.l{color:#C60}#sbo-rt-content pre code.l{color:#F90}#sbo-rt-content pre code.n{color:#008}#sbo-rt-content pre code.nx{color:#008}#sbo-rt-content pre code.py{color:#96F}#sbo-rt-content pre code.p{color:#000}#sbo-rt-content pre code.x{color:#F06}#sbo-rt-content div.blockquote_sampler_toc{width:95%;margin:5px 5px 5px 10px !important}#sbo-rt-content div{font-family:serif;text-align:left}#sbo-rt-content .gray-background,#sbo-rt-content .reverse-video{background:#2E2E2E;color:#FFF}#sbo-rt-content .light-gray-background{background:#A0A0A0}#sbo-rt-content .preserve-whitespace{white-space:pre-wrap}#sbo-rt-content pre.break-code,#sbo-rt-content code.break-code,#sbo-rt-content .break-code pre,#sbo-rt-content .break-code code{word-break:break-all}#sbo-rt-content span.gray{color:#4C4C4C}#sbo-rt-content .width-10,#sbo-rt-content figure.width-10 img{width:10% !important}#sbo-rt-content .width-20,#sbo-rt-content figure.width-20 img{width:20% !important}#sbo-rt-content .width-30,#sbo-rt-content figure.width-30 img{width:30% !important}#sbo-rt-content .width-40,#sbo-rt-content figure.width-40 img{width:40% !important}#sbo-rt-content .width-50,#sbo-rt-content figure.width-50 img{width:50% !important}#sbo-rt-content .width-60,#sbo-rt-content figure.width-60 img{width:60% !important}#sbo-rt-content .width-70,#sbo-rt-content figure.width-70 img{width:70% !important}#sbo-rt-content .width-80,#sbo-rt-content figure.width-80 img{width:80% !important}#sbo-rt-content .width-90,#sbo-rt-content figure.width-90 img{width:90% !important}#sbo-rt-content .width-full,#sbo-rt-content .width-100{width:100% !important}#sbo-rt-content .sc{text-transform:none !important}#sbo-rt-content .right{float:none !important}#sbo-rt-content a.totri-footnote{padding:0 !important;display:inline}#sbo-rt-content table p[data-type="footnote"]{padding-left:1em !important}#sbo-rt-content figure.width-10,#sbo-rt-content figure.width-20,#sbo-rt-content figure.width-30,#sbo-rt-content figure.width-40,#sbo-rt-content figure.width-50,#sbo-rt-content figure.width-60,#sbo-rt-content figure.width-70,#sbo-rt-content figure.width-80,#sbo-rt-content figure.width-90{width:auto !important}#sbo-rt-content ol ul>li{list-style-type:disc !important}#sbo-rt-content ul.simplelist li{list-style-type:none !important}#sbo-rt-content table td.white1{background-color:#fff}#sbo-rt-content .plain2{font-style:normal !important}
+</style>
+<style>
+
+html, body { margin: 0; padding: 0; background: #ffffff; }
+body { font-family: Georgia, "Times New Roman", "Songti SC", serif; color: #1a1a1a; }
+#page { max-width: 42em; margin: 0 auto; padding: 48px 56px 72px; }
+#sbo-rt-content { font-size: 17px; line-height: 1.65; }
+#sbo-rt-content h1 { font-size: 1.9em; margin: 0 0 1em; }
+#sbo-rt-content p { margin: 0 0 1em; text-align: justify; }
+#sbo-rt-content p.byline { margin-top: 2em; text-align: right; font-style: italic; }
+#sbo-rt-content img { max-width: 100%; height: auto; }
+.meta { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 12.5px; color: #777;
+  border-bottom: 1px solid #e5e5e5; padding-bottom: 14px; margin-bottom: 34px; line-height: 1.5; }
+@media print {
+  #page { max-width: none; padding: 0; }
+  #sbo-rt-content { font-size: 11.5pt; }
+  .meta { display: none; }
+  #sbo-rt-content h1 { break-after: avoid; }
+  #sbo-rt-content p, #sbo-rt-content li { break-inside: avoid; }
+  @page { margin: 20mm 18mm; }
+}
+</style>
+
+<style id="zh-bilingual-style">
+/*
+ * Bilingual companion blocks (Simplified Chinese).
+ *
+ * Each Chinese node is injected right after its English source and reuses the
+ * English tag plus the source's copied class/data-type/style attributes, so
+ * font size, weight, italics, text alignment and hanging indents already match
+ * the English automatically (no font/colour overrides here). These rules only:
+ *   1) give CJK text a looser, more readable line-height, and
+ *   2) pull every Chinese block tight to the English it translates — and move
+ *      chapter/section underlines below the pair — so the two read as one unit.
+ */
+
+/* 1. Comfortable CJK reading rhythm (looser than the Latin source). */
+#sbo-rt-content p.zh,
+#sbo-rt-content li > div.zh,
+#sbo-rt-content dd.zh,
+#sbo-rt-content td .zh,
+#sbo-rt-content th .zh {
+  line-height: 1.6 !important;
+}
+
+/* 2a. Each Chinese block hugs the English above it. */
+#sbo-rt-content p.zh,
+#sbo-rt-content dd.zh,
+#sbo-rt-content li > div.zh {
+  margin-top: 0.35em !important;
+}
+#sbo-rt-content dt.zh {
+  margin-top: 0.35em !important;
+  padding-top: 0 !important;
+}
+#sbo-rt-content h1.zh,
+#sbo-rt-content h2.zh,
+#sbo-rt-content h3.zh,
+#sbo-rt-content h4.zh,
+#sbo-rt-content h5.zh,
+#sbo-rt-content h6.zh {
+  margin-top: 0.2em !important;
+}
+
+/* 2b. Tighten the English source toward the Chinese translation that follows,
+ *     so an English block and its Chinese twin group together. :has() lets us
+ *     target only English elements that actually have a zh sibling. */
+#sbo-rt-content p:has(+ p.zh),
+#sbo-rt-content dt:has(+ dt.zh),
+#sbo-rt-content dd:has(+ dd.zh) {
+  margin-bottom: 0.2em !important;
+}
+#sbo-rt-content h1:has(+ h1.zh),
+#sbo-rt-content h2:has(+ h2.zh),
+#sbo-rt-content h3:has(+ h3.zh),
+#sbo-rt-content h4:has(+ h4.zh),
+#sbo-rt-content h5:has(+ h5.zh),
+#sbo-rt-content h6:has(+ h6.zh) {
+  margin-bottom: 0.1em !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+</style>
+</head>
+<body>
+<div id="page">
+<div class="meta">Foreword — <em>Site Reliability Engineering, 2nd Edition</em> (O'Reilly)<br>Saved from learning.oreilly.com</div>
+<div id="sbo-rt-content"><section data-type="foreword" epub:type="foreword" data-pdf-bookmark="Foreword"><div class="preface" id="foreword">
+<h1>Foreword</h1>
+<h1 class="zh" lang="zh-CN">序言</h1>
+
+
+
+<p>The first edition of <em>Site Reliability Engineering</em> was published a
+decade ago, and at the time we weren’t sure how much interest there
+would be in its content. The SRE Book, as it became known, captured much
+of our accumulated knowledge, experiences, best practices, and ideas for
+operating Google-scale distributed systems. However, we were concerned
+that what we wrote about might be too esoteric or Google-specific to be
+broadly useful. We thought that perhaps a few thousand people might read
+our book, and fewer still would put it into practice.</p>
+<p class="zh" lang="zh-CN"><em>Site Reliability Engineering</em> 第 1 版出版于十年前，当时我们并不确定其内容会引起多大的兴趣。这本后来被大家称为“SRE Book”的书，汇集了我们在运维 Google 规模分布式系统方面所积累的大量知识、经验、最佳实践与思路。然而，我们当时也担心，书中所写的内容也许过于深奥，或过于 Google 特有，难以具有广泛的实用价值。我们原以为，大概只会有几千人读到此书，而真正将其付诸实践的人还要更少。</p>
+
+
+<p>I am pleased to say that we may have <em>slightly</em> underestimated the
+interest in our material. Adoption exceeded our wildest
+expectations, and it has become one of O’Reilly’s most popular books.
+Engineers and organizations across the industry have incorporated ideas,
+terminology, and challenges from the SRE Book into their own thinking and
+practices, often finding their own way of implementing, incorporating, or
+extending the concepts we covered. In the same period, SRE as a
+discipline has grown and matured, largely outside of Google itself.
+Within Google SRE, we are both proud of what we have achieved and happy
+that we have been successful in sharing it.</p>
+<p class="zh" lang="zh-CN">可以欣慰地说，我们当初大概<em>稍稍</em>低估了大家对这些内容的兴趣。它被采纳的程度远远超出了我们最大胆的预期，本书也成了 O’Reilly 最受欢迎的图书之一。业界的工程师与组织把 SRE Book 中的理念、术语与挑战吸收进自己的思考与实践，往往以各自的方式去落地、吸纳或拓展我们所讲述的概念。同一时期，SRE 作为一门学科不断成长、走向成熟，而这在很大程度上发生在 Google 之外。在 Google SRE 内部，我们既为自己的成就感到自豪，也为能成功地把它分享出去而感到欣慰。</p>
+
+
+<p>With another decade of SRE behind us, we also have several new
+observations about the profession and industry that are worth sharing and that form the subtext for much of what is in this second edition.</p>
+<p class="zh" lang="zh-CN">又经历了十年的 SRE 实践之后，我们对这个职业与这个行业也有了几点新的观察，值得在此分享；它们也构成了本书第 2 版诸多内容背后的潜台词。</p>
+
+
+<p>First, we find it notable that the growth of SRE has not come
+at the expense of other approaches to systems management. The
+You-Build-It-You-Run-It (YBIYRI) approach continues to be a default for
+many organizations, including several inside Google, and is often the
+optimal choice early in a service’s life. Many of the technical
+principles covered in the SRE Book—progressive rollout, circuit
+breakers, cascading failure protection—are independent of the
+organizational principles, and services that incorporate these
+technical principles often find less early utility in also adopting SRE
+organizational structures. This is a sign of progress!</p>
+<p class="zh" lang="zh-CN">首先，值得一提的是，SRE 的发展壮大并没有以牺牲其他系统管理方式为代价。“谁构建、谁运维（You-Build-It-You-Run-It, YBIYRI）”模式仍是许多组织（包括 Google 内部的一些团队）的默认做法，而且在服务生命周期的早期往往是最优选择。SRE Book 中讲到的许多技术原则——渐进式发布、熔断、级联故障防护——本身并不依赖于 SRE 的组织形式；服务只要用上了这些技术原则，早期再额外引入 SRE 的组织架构，收益往往就没那么大了。这正是进步的体现！</p>
+
+
+<p class="less_space pagebreak-before">With this continued heterogeneity of operational models,
+however, we have also observed cases where services and teams that
+started as YBIYRI have grown to the point where SRE’s organizational
+design would be more efficient for them, but inertia or even bias impedes
+the change. Here, a quantitative benchmark is useful to help teams assess
+their current state. As of this writing, across Google:</p>
+<p class="less_space pagebreak-before zh" lang="zh-CN">然而，在这种运维模型持续多样化的同时，我们也观察到这样一些情形：一些最初采用 YBIYRI 的服务与团队，已经发展到改用 SRE 的组织设计会更高效的程度，却因惯性甚至偏见而迟迟未能转变。此时，一个量化的基准有助于团队评估自身的现状。截至本书撰写之时，在整个 Google 范围内：</p>
+
+
+<ul>
+<li>
+<p>SRE is less than 4% of total engineering headcount.</p>
+<p class="zh" lang="zh-CN">SRE 人数不到全体工程人员的 4%。</p>
+
+</li>
+<li>
+<p>Production work consumes less than 15% of total engineering time.</p>
+<p class="zh" lang="zh-CN">生产工作占用的时间不到全部工程时间的 15%。</p>
+
+</li>
+</ul>
+
+<p>These figures represent a moment in time, and we expect them to further
+improve over the coming years as we move more toil work into automation.
+However, we have found this quantitative benchmark to be compelling, since
+many software as a service (SaaS) teams spend 30%+ of their total engineering time on production
+work and toil. Faced with the evidence that a sub-4% team can reduce engineering toil by half, the provocative question “Would you like
+to free up more than 10% of your headcount for feature development?” is often
+persuasive. Few engineering leaders will turn down extra engineers, and
+the roughly 4:1 return in engineering cycles on an investment in SRE is
+a straightforward way for them to get those extra engineers. SRE’s core
+proposition has thus become even stronger as evidence, technology,
+and practice have accumulated.</p>
+<p class="zh" lang="zh-CN">这些数字只是某一时刻的快照；随着我们把更多琐事工作交给自动化来完成，预计未来几年它们还会进一步改善。不过，我们发现这一量化基准颇具说服力，因为许多软件即服务（SaaS）团队要把总工程时间的 30% 以上花在生产环境工作与琐事上。面对“一个占比不到 4% 的团队就能把工程琐事减半”这样的证据，“你是否愿意腾出 10% 以上的人力去做功能开发？”这个尖锐的问题，往往很能打动人。很少有工程负责人会拒绝额外的工程师，而在 SRE 上的投入能换回约 4:1 的工程人力回报，这正是他们获得这些额外人手的一条直接途径。于是，随着证据、技术与实践的不断积累，SRE 的核心主张变得愈发有力。</p>
+
+
+<p>Second, over the last decade we increasingly encountered the limits of
+reliability by policy, and we have been replacing it with reliability by
+default. We gradually observed that SRE teams across Google had
+successfully developed automation and tooling for specific classes of
+tasks, but with three key challenges:</p>
+<p class="zh" lang="zh-CN">其次，在过去十年里，我们越来越多地触及“靠策略保障可靠性”这一做法的局限，并一直在用“默认即可靠”来取而代之。我们逐渐发现，Google 各处的 SRE 团队都成功地为特定类别的任务开发了自动化与工具，但其中存在三大关键难题：</p>
+
+<ol>
+<li>
+<p>Individual SRE teams developed tools that solved their specific use
+cases but did not work for all other teams. Thus, instead of a single
+way to (say) roll out a configuration change globally, there were
+several distinct solutions, each tailored to a subset of systems:
+stateless versus stateful, regional versus global, etc. Each system had a large
+enough group of users that it was self-sustaining, and each tried to
+gain additional adherents in order to get more developers contributing
+to its codebase.</p>
+<p class="zh" lang="zh-CN">各个 SRE 团队各自开发的工具，只解决了自己特定的使用场景，却无法适用于其他所有团队。于是，针对（比方说）在全局范围内发布一次配置变更这件事，并不存在唯一的做法，而是有好几种各不相同的方案，每一种都是为某一类系统量身定制的：无状态与有状态、区域级与全局级，等等。每套系统都拥有数量足够多的用户，足以自我维系；而每套系统又都在设法争取更多拥护者，以吸引更多开发者为其代码库做贡献。</p>
+
+</li>
+<li>
+<p>As our collective understanding of reliability principles continued to
+evolve, each individual system often did not immediately implement the
+latest 
+<span class="keep-together">findings. Thus, SRE</span> had an excellent set of <em>policies</em> governing
+reliability—for example, “all rollouts to 99.95%+ reliable systems
+shall be progressive”—but it was up to many individual teams to
+translate these policies into their specific tools and correctly
+implement them, and any team that used a tool or system that hadn’t
+implemented the latest policies would be exposed to increased
+reliability risk.</p>
+<p class="zh" lang="zh-CN">随着我们对可靠性原则的集体理解不断演进，各个单独的系统却往往没有及时落实最新的认识。于是，SRE 拥有一套出色的、用以治理可靠性的<em>策略</em>——例如“对可靠性达到 99.95% 以上的系统，所有发布都必须是渐进式的”——但要把这些策略落实到各自特定的工具中并正确实现，仍要仰仗许多独立的团队；而任何团队，只要使用了尚未实现最新策略的工具或系统，就会面临更高的可靠性风险。</p>
+
+</li>
+<li>
+<p>Finally, since reliability tooling was up to individual SRE teams,
+there was no need for them to adopt the existing systems. If a new type
+of service didn’t neatly work with one of the existing tools, SRE teams
+were free to create their own—often missing several of the hard-won
+lessons encoded in existing systems, and again increasing their
+services’ reliability risk.</p>
+<p class="zh" lang="zh-CN">最后，由于可靠性工具的建设全凭各个 SRE 团队自行决定，他们也就没有必要非得采用现有系统。一旦某种新型服务无法与现有的某个工具顺畅配合，SRE 团队便可以自由地另起炉灶、打造自己的工具——而这往往会遗漏那些已沉淀在现有系统中、来之不易的经验教训，再次抬高其服务的可靠性风险。</p>
+
+</li>
+
+</ol>
+
+<p>The combination of these three issues led to both duplicative
+engineering work—<em>N</em> systems each implementing <em>K</em> policies—and a number
+of avoidable outages. The latter issue was eventually dubbed “Treynor’s
+Lament” after I repeatedly observed during postmortems that “There
+are no new outages at Google, only new instances of old outages.” The
+solution was simple, though not easy:</p>
+<p class="zh" lang="zh-CN">这三个问题叠加在一起，既造成了重复的工程劳动——<em>N</em> 套系统各自重复实现同样的 <em>K</em> 项策略——也导致了一些本可避免的故障。后者最终被称为“Treynor 之叹”，得名于我在一次次事后总结中反复说的一句话：“Google 没有新故障，只有老故障的重演。”解决之道说来简单，做起来却不容易：</p>
+
+<ol>
+<li>
+<p>Standardize all teams on a single system for each class of reliability
+practice (e.g., configuration change management).</p>
+<p class="zh" lang="zh-CN">针对每一类可靠性实践（例如配置变更管理），让所有团队统一到同一套系统上。</p>
+
+</li>
+<li>
+<p><em>Mandate</em> that all SRE teams use only that system for automating their
+changes.</p>
+<p class="zh" lang="zh-CN"><em>强制</em>要求所有 SRE 团队只能使用那一套系统来自动化其变更。</p>
+
+</li>
+
+</ol>
+
+<p>The combination of these two requirements was called Convergence and was
+a program that spanned much of the past decade. Convergence was
+combined with an increased extra-SRE development focus on common
+tooling; together, the two produced what we now call the Google
+Production Platform (GPP). We call this combination reliability by
+default, because any new SRE team will adopt GPP, extend it as
+necessary to work with its specific service, and in so doing inherit
+all of Google’s collective reliability experience.</p>
+<p class="zh" lang="zh-CN">这两项要求合在一起，被称为 Convergence（收敛），它是一项贯穿了过去十年大部分时间的计划。Convergence 还与 SRE 之外、对通用工具日益加强的研发投入相结合；二者共同造就了我们如今所称的 Google 生产平台（Google Production Platform, GPP）。我们把这种组合称为“默认即可靠”，因为任何一个新的 SRE 团队都会采用 GPP，并按需加以扩展以适配其特定服务，在此过程中便继承 Google 集体积累的全部可靠性经验。</p>
+
+
+<p>It is worth noting that the Convergence change was not popular with the SRE
+teams for which it required changing systems, and thus more short-term
+work! However, there is no arguing with the result: with an SRE team
+that has maintained a fixed &lt;5% ratio of total engineering headcount,
+Google has observed an integer (&gt;2!) step-function improvement in its
+total outage frequency × scope × duration since implementing
+Convergence.</p>
+<p class="zh" lang="zh-CN">值得一提的是，Convergence 这项变革，在那些因此需要更换系统、从而平添了不少短期工作量的 SRE 团队中并不受欢迎！然而，结果却不容争辩：在 SRE 团队始终保持低于 5% 的全体工程人员占比的情况下，自实施 Convergence 以来，Google 观察到其故障总量——以频率 × 影响范围 × 持续时间衡量——出现了整数倍（而且不止 2 倍！）的阶跃式改善。</p>
+
+
+<p>Third, we continue to find that the early decisions to hold a consistent
+hiring and skills bar for SRE and product developers but to keep the SRE organization
+distinct from engineering are both critical to the team’s ability to
+deliver the earlier-cited 4:1 engineering efficiency gain of an
+investment in SRE relative to YBIYRI. Part of the benefit comes from SRE
+teams’ ability to maintain focus and priority: while feature needs often
+change quarter to quarter (and sometimes more frequently), SRE teams can
+remain focused on and personally invested in optimizing reliability and
+feature velocity. Another part of the benefit is that SREs regularly move
+out of the team and into other parts of Google software engineering,
+bringing with them both the experience and the culture from SRE.</p>
+<p class="zh" lang="zh-CN">第三，我们持续发现，早期做出的那些决定——对 SRE 与产品开发者坚持一致的招聘与技能门槛，却让 SRE 组织独立于研发体系之外——对于团队能否兑现前文所述的、投资 SRE 相对于 YBIYRI 所带来的 4:1 工程效率提升，都至关重要。这种收益，一部分来自 SRE 团队保持专注与明确优先级的能力：功能需求往往每个季度都在变化（有时甚至更频繁），而 SRE 团队却能够始终专注于、并亲身投入到可靠性与功能迭代速度的优化之中。另一部分收益则在于，SRE 工程师会定期从团队中流动出去，进入 Google 软件工程的其他部门，并把源自 SRE 的经验与文化一并带了过去。</p>
+
+
+<p class="pagebreak-before less_space">Finally, the first edition of <em>Site Reliability Engineering</em> opened with
+“It is a truth universally acknowledged that systems do not run
+themselves.” Part of what is so exciting about our current historical
+moment is that machine learning is becoming increasingly capable of
+doing, or automating, ever more of the manual production toil that
+SREs still tend to. The opportunities for ML to multiply the
+effectiveness of each SRE are legion, including AI agents looking through the
+codebase to find all the places where remote procedure calls do not include exponential
+backoff and fixing them; taking postmortem action items and looking for
+similar patterns or latent booby traps throughout the entire codebase,
+not just the system being reviewed; performing automated STPA risk
+analysis for <em>all</em> systems, not just the handful we have cycles for now;
+and so much more. It is a heady time for SRE, and I look forward to
+our progress over the next decade with both excitement and optimism.</p>
+<p class="pagebreak-before less_space zh" lang="zh-CN">最后，<em>Site Reliability Engineering</em> 第 1 版开篇就写道：“系统不会自己运行，这是一条举世公认的真理。”当下之所以如此令人振奋，原因之一在于：机器学习（ML）越来越有能力替 SRE 工程师代劳或自动化那些至今仍靠手工处理的生产琐事，而且能接手的范围还在不断扩大。ML 能让每位 SRE 工程师的效能成倍提升，这样的机会比比皆是。比如：让 AI 智能体扫遍代码库，找出所有没加指数退避的远程过程调用（RPC），并逐一修复；拿着事后总结里的行动项，在整个代码库里排查有没有同类问题或还埋着的雷，而不只盯着本次复盘的那个系统；对<em>所有</em>系统做自动化的 STPA 风险分析，而不只是眼下人手顾得过来的那几个；还有很多很多。对 SRE 而言，这是一个激动人心的时代；对未来十年的进展，我既兴奋又乐观。</p>
+
+
+<p class="byline">Benjamin Treynor Sloss</p>
+</div></section></div>
+</div>
+</body>
+</html>
