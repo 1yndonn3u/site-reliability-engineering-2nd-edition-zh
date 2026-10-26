@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Preface — Site Reliability Engineering, 2nd Edition</title>
+
+<style>
+@charset "utf-8";#sbo-rt-content html,#sbo-rt-content div,#sbo-rt-content div,#sbo-rt-content span,#sbo-rt-content applet,#sbo-rt-content object,#sbo-rt-content iframe,#sbo-rt-content h1,#sbo-rt-content h2,#sbo-rt-content h3,#sbo-rt-content h4,#sbo-rt-content h5,#sbo-rt-content h6,#sbo-rt-content p,#sbo-rt-content blockquote,#sbo-rt-content pre,#sbo-rt-content a,#sbo-rt-content abbr,#sbo-rt-content acronym,#sbo-rt-content address,#sbo-rt-content big,#sbo-rt-content cite,#sbo-rt-content code,#sbo-rt-content del,#sbo-rt-content dfn,#sbo-rt-content em,#sbo-rt-content img,#sbo-rt-content ins,#sbo-rt-content kbd,#sbo-rt-content q,#sbo-rt-content s,#sbo-rt-content samp,#sbo-rt-content small,#sbo-rt-content strike,#sbo-rt-content strong,#sbo-rt-content sub,#sbo-rt-content sup,#sbo-rt-content tt,#sbo-rt-content var,#sbo-rt-content b,#sbo-rt-content u,#sbo-rt-content i,#sbo-rt-content center,#sbo-rt-content dl,#sbo-rt-content dt,#sbo-rt-content dd,#sbo-rt-content ol,#sbo-rt-content ul,#sbo-rt-content li,#sbo-rt-content fieldset,#sbo-rt-content form,#sbo-rt-content label,#sbo-rt-content legend,#sbo-rt-content table,#sbo-rt-content caption,#sbo-rt-content tdiv,#sbo-rt-content tfoot,#sbo-rt-content thead,#sbo-rt-content tr,#sbo-rt-content th,#sbo-rt-content td,#sbo-rt-content article,#sbo-rt-content aside,#sbo-rt-content canvas,#sbo-rt-content details,#sbo-rt-content embed,#sbo-rt-content figure,#sbo-rt-content figcaption,#sbo-rt-content footer,#sbo-rt-content header,#sbo-rt-content hgroup,#sbo-rt-content menu,#sbo-rt-content nav,#sbo-rt-content output,#sbo-rt-content ruby,#sbo-rt-content section,#sbo-rt-content summary,#sbo-rt-content time,#sbo-rt-content mark,#sbo-rt-content audio,#sbo-rt-content video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}#sbo-rt-content article,#sbo-rt-content aside,#sbo-rt-content details,#sbo-rt-content figcaption,#sbo-rt-content figure,#sbo-rt-content footer,#sbo-rt-content header,#sbo-rt-content hgroup,#sbo-rt-content menu,#sbo-rt-content nav,#sbo-rt-content section{display:block}#sbo-rt-content div{line-height:1}#sbo-rt-content ol,#sbo-rt-content ul{list-style:none}#sbo-rt-content blockquote,#sbo-rt-content q{quotes:none}#sbo-rt-content blockquote:before,#sbo-rt-content blockquote:after,#sbo-rt-content q:before,#sbo-rt-content q:after{content:none}#sbo-rt-content table{border-collapse:collapse;border-spacing:0}@page{margin:5px !important}#sbo-rt-content p{margin:10px 0 0;line-height:125%;text-align:left}#sbo-rt-content p.byline{text-align:left;margin:-33px auto 35px;font-style:italic;font-weight:bold}#sbo-rt-content div.preface p+p.byline,#sbo-rt-content div.preface p.byline.cont+p.byline:not(.cont){margin:1em 0 0 !important}#sbo-rt-content div.preface p.byline+p.byline{margin:0 !important}#sbo-rt-content div.sect1>p.byline{margin:-.25em 0 1em}#sbo-rt-content div.sect1>p.byline+p.byline{margin-top:-1em}#sbo-rt-content em{font-style:italic;font-family:inherit}#sbo-rt-content em strong,#sbo-rt-content strong em{font-weight:bold;font-style:italic;font-family:inherit}#sbo-rt-content strong,#sbo-rt-content span.bold{font-weight:bold}#sbo-rt-content em.replaceable{font-style:italic}#sbo-rt-content strong.userinput{font-weight:bold;font-style:normal}#sbo-rt-content span.bolditalic{font-weight:bold;font-style:italic}#sbo-rt-content a.ulink,#sbo-rt-content a.xref,#sbo-rt-content a.email,#sbo-rt-content a.link,#sbo-rt-content a{text-decoration:none;color:#8e0012}#sbo-rt-content span.lineannotation{font-style:italic;color:#a62a2a;font-family:serif}#sbo-rt-content span.underline{text-decoration:underline}#sbo-rt-content span.strikethrough{text-decoration:line-through}#sbo-rt-content span.smallcaps{font-variant:small-caps}#sbo-rt-content span.cursor{background:#000;color:#fff}#sbo-rt-content span.smaller{font-size:75%}#sbo-rt-content .boxedtext,#sbo-rt-content .keycap{border-style:solid;border-width:1px;border-color:#000;padding:1px}#sbo-rt-content span.gray50{color:#7F7F7F;}#sbo-rt-content p img,#sbo-rt-content pre img,#sbo-rt-content figcaption img,#sbo-rt-content blockquote img,#sbo-rt-content dt img,#sbo-rt-content div.figure h6 img{height:1em !important;width:1em !important;max-height:1em !important;line-height:0 !important;margin:0 0 -1px !important}#sbo-rt-content figcaption img,#sbo-rt-content div.figure h6 img{padding:0 2px !important}#sbo-rt-content h1,#sbo-rt-content div.toc-title,#sbo-rt-content h2,#sbo-rt-content h3,#sbo-rt-content h4,#sbo-rt-content h5{-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;font-weight:bold;text-align:left;page-break-after:avoid !important;font-family:sans-serif,"DejaVuSans"}#sbo-rt-content div.toc-title{font-size:1.5em;margin-top:20px !important;margin-bottom:30px !important}#sbo-rt-content section[data-type="sect1"] h1{font-size:1.3em;color:#8e0012;margin:40px 0 8px 0}#sbo-rt-content section[data-type="sect2"] h2{font-size:1.1em;margin:30px 0 8px 0 !important}#sbo-rt-content section[data-type="sect3"] h3{font-size:1em;color:#555;margin:20px 0 8px 0 !important}#sbo-rt-content section[data-type="sect4"] h4{font-size:1em;font-weight:normal;font-style:italic;margin:15px 0 6px 0 !important}#sbo-rt-content section[data-type="chapter"]>div>h1,#sbo-rt-content section[data-type="preface"]>div>h1,#sbo-rt-content section[data-type="appendix"]>div>h1,#sbo-rt-content section[data-type="glossary"]>div>h1,#sbo-rt-content section[data-type="bibliography"]>div>h1,#sbo-rt-content section[data-type="afterword"]>div>h1,#sbo-rt-content section[data-type="index"]>div>h1{font-size:2em;line-height:1;margin-bottom:50px;color:#000;padding-bottom:10px;border-bottom:1px solid #000}#sbo-rt-content span.label,#sbo-rt-content span.keep-together{font-size:inherit;font-weight:inherit}#sbo-rt-content div[data-type="part"]>h1{font-size:2em;text-align:center;margin-top:0 !important;margin-bottom:50px;padding:50px 0 10px 0;border-bottom:1px solid #000}#sbo-rt-content img.width-ninety{width:90%}#sbo-rt-content img{max-width:95%;margin:0 auto;padding:0}#sbo-rt-content div.figure{background-color:transparent;text-align:center !important;margin:15px auto !important;page-break-inside:avoid}#sbo-rt-content figure{margin:15px auto !important;page-break-inside:avoid}#sbo-rt-content div.figure h6,#sbo-rt-content figure h6,#sbo-rt-content figure figcaption{font-size:.9rem !important;text-align:center;font-weight:normal !important;font-style:italic;font-family:serif !important;text-transform:none !important;letter-spacing:normal !important;color:#000;padding-top:.25em !important;margin-top:0 !important;page-break-before:avoid}#sbo-rt-content div.informalfigure{text-align:center !important;padding:5px 0 !important}#sbo-rt-content div.sidebar{margin:15px 0 10px 0 !important;border:1px solid #DCDCDC;background-color:#F7F7F7;padding:15px !important;page-break-inside:avoid}#sbo-rt-content aside[data-type="sidebar"]{margin:15px 0 10px 0 !important;page-break-inside:avoid}#sbo-rt-content div.sidebar-title,#sbo-rt-content div.sidebar h1,#sbo-rt-content div.sidebar h5,#sbo-rt-content aside[data-type="sidebar"] h1,#sbo-rt-content aside[data-type="sidebar"] h5{font-weight:bold;font-size:1em;font-family:sans-serif;text-transform:uppercase;letter-spacing:1px;text-align:center;margin:4px 0 6px 0 !important;page-break-inside:avoid}#sbo-rt-content div.sidebar ol,#sbo-rt-content div.sidebar ul,#sbo-rt-content aside[data-type="sidebar"] ol,#sbo-rt-content aside[data-type="sidebar"] ul{margin-left:1.25em !important}#sbo-rt-content div.sidebar div.figure p.title,#sbo-rt-content aside[data-type="sidebar"] figcaption,#sbo-rt-content div.sidebar div.informalfigure div.caption{font-size:90%;text-align:center;font-weight:normal;font-style:italic;font-family:serif !important;color:#000;padding:5px !important;page-break-before:avoid;page-break-after:avoid}#sbo-rt-content div.sidebar div.tip,#sbo-rt-content div.sidebar div[data-type="tip"],#sbo-rt-content div.sidebar div.note,#sbo-rt-content div.sidebar div[data-type="note"],#sbo-rt-content div.sidebar div.warning,#sbo-rt-content div.sidebar div[data-type="warning"],#sbo-rt-content div.sidebar div[data-type="caution"],#sbo-rt-content div.sidebar div[data-type="important"]{margin:20px auto 20px auto !important;font-size:90%;width:85%}#sbo-rt-content aside[data-type="sidebar"] p.byline{font-size:90%;font-weight:bold;font-style:italic;text-align:center;text-indent:0;margin:5px auto 6px;page-break-after:avoid}#sbo-rt-content pre{white-space:pre-wrap;font-family:"Ubuntu Mono",monospace;margin:25px 0 25px 20px;font-size:85%;display:block;-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;overflow-wrap:break-word}#sbo-rt-content pre code{font-size:inherit !important}#sbo-rt-content pre+pre{margin-top:-25px !important}#sbo-rt-content div.note pre.programlisting,#sbo-rt-content div.tip pre.programlisting,#sbo-rt-content div.warning pre.programlisting,#sbo-rt-content div.caution pre.programlisting,#sbo-rt-content div.important pre.programlisting{margin-bottom:0}#sbo-rt-content code{font-family:"Ubuntu Mono",monospace;-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none;overflow-wrap:break-word}#sbo-rt-content code strong em,#sbo-rt-content code em strong,#sbo-rt-content pre em strong,#sbo-rt-content pre strong em,#sbo-rt-content strong code em code,#sbo-rt-content em code strong code,#sbo-rt-content span.bolditalic code{font-weight:bold;font-style:italic;font-family:"Ubuntu Mono BoldItal",monospace}#sbo-rt-content code em,#sbo-rt-content em code,#sbo-rt-content pre em,#sbo-rt-content em.replaceable{font-family:"Ubuntu Mono Ital",monospace;font-style:italic}#sbo-rt-content code strong,#sbo-rt-content strong code,#sbo-rt-content pre strong,#sbo-rt-content strong.userinput{font-family:"Ubuntu Mono Bold",monospace;font-weight:bold}#sbo-rt-content div[data-type="example"]{margin:10px 0 15px 0 !important}#sbo-rt-content div[data-type="example"] h1,#sbo-rt-content div[data-type="example"] h2,#sbo-rt-content div[data-type="example"] h3,#sbo-rt-content div[data-type="example"] h4,#sbo-rt-content div[data-type="example"] h5,#sbo-rt-content div[data-type="example"] h6{font-style:italic;font-weight:normal;text-align:left !important;text-transform:none !important;font-family:serif !important;margin:10px 0 5px 0 !important;border-bottom:1px solid #000}#sbo-rt-content li pre{line-height:1;margin-top:0}#sbo-rt-content li pre.example{padding:10px 0 !important}#sbo-rt-content div[data-type="example"] pre[data-type="programlisting"],#sbo-rt-content div[data-type="example"] pre[data-type="screen"]{margin:0}#sbo-rt-content section[data-type="titlepage"]>div>h1{font-size:2em;margin:50px 0 10px 0 !important;line-height:1;text-align:center}#sbo-rt-content section[data-type="titlepage"] h2,#sbo-rt-content section[data-type="titlepage"] p.subtitle,#sbo-rt-content section[data-type="titlepage"] p[data-type="subtitle"]{font-size:1.3em;font-weight:normal;text-align:center;margin-top:.5em;color:#555}#sbo-rt-content section[data-type="titlepage"]>div>h2[data-type="author"],#sbo-rt-content section[data-type="titlepage"] p.author{font-size:1.3em;font-family:serif !important;font-weight:bold;margin:50px 0 !important;text-align:center}#sbo-rt-content section[data-type="titlepage"] p.edition{text-align:center;text-transform:uppercase;margin-top:2em}#sbo-rt-content section[data-type="titlepage"]{text-align:center}#sbo-rt-content section[data-type="titlepage"]:after{content:url(css_assets/titlepage_footer_ebook.png);margin:0 auto;max-width:80%}#sbo-rt-content div.book div.titlepage div.publishername{margin-top:60%;margin-bottom:20px;text-align:center;font-size:1.25em}#sbo-rt-content div.book div.titlepage div.locations p{margin:0;text-align:center}#sbo-rt-content div.book div.titlepage div.locations p.cities{font-size:80%;text-align:center;margin-top:5px}#sbo-rt-content section.preface[title="Dedication"]>div.titlepage h2.title{text-align:center;text-transform:uppercase;font-size:1.5em;margin-top:50px;margin-bottom:50px}#sbo-rt-content ul.stafflist{margin:15px 0 15px 20px !important}#sbo-rt-content ul.stafflist li{list-style-type:none;padding:5px 0}#sbo-rt-content ul.printings li{list-style-type:none}#sbo-rt-content section.preface[title="Dedication"] p{font-style:italic;text-align:center}#sbo-rt-content div.colophon h1.title{font-size:1.3em;margin:0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon h2.subtitle{margin:0 !important;color:#000;font-family:serif !important;font-size:1em;font-weight:normal}#sbo-rt-content div.colophon div.author h3.author{font-size:1.1em;font-family:serif !important;margin:10px 0 0 !important;font-weight:normal}#sbo-rt-content div.colophon div.editor h4,#sbo-rt-content div.colophon div.editor h3.editor{color:#000;font-size:.8em;margin:15px 0 0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon div.editor h3.editor{font-size:.8em;margin:0 !important;font-family:serif !important;font-weight:normal}#sbo-rt-content div.colophon div.publisher{margin-top:10px}#sbo-rt-content div.colophon div.publisher p,#sbo-rt-content div.colophon div.publisher span.publishername{margin:0;font-size:.8em}#sbo-rt-content div.legalnotice p,#sbo-rt-content div.timestamp p{font-size:.8em}#sbo-rt-content div.timestamp p{margin-top:10px}#sbo-rt-content div.colophon[title="About the Author"] h1.title,#sbo-rt-content div.colophon[title="Colophon"] h1.title{font-size:1.5em;margin:0 !important;font-family:sans-serif !important}#sbo-rt-content section.chapter div.titlepage div.author{margin:10px 0 10px 0}#sbo-rt-content section.chapter div.titlepage div.author div.affiliation{font-style:italic}#sbo-rt-content div.attribution{margin:5px 0 0 50px !important}#sbo-rt-content h3.author span.orgname{display:none}#sbo-rt-content div.epigraph{margin:10px 0 10px 20px !important;page-break-inside:avoid;font-size:90%}#sbo-rt-content div.epigraph p{font-style:italic}#sbo-rt-content blockquote,#sbo-rt-content div.blockquote{margin:10px !important;page-break-inside:avoid;font-size:95%}#sbo-rt-content blockquote p,#sbo-rt-content div.blockquote p{font-style:italic;margin:.75em 0 0 !important}#sbo-rt-content blockquote div.attribution,#sbo-rt-content blockquote p[data-type="attribution"]{margin:5px 0 10px 30px !important;text-align:right;width:80%}#sbo-rt-content blockquote div.attribution p,#sbo-rt-content blockquote p[data-type="attribution"]{font-style:normal;margin-top:5px}#sbo-rt-content blockquote div.attribution p:before,#sbo-rt-content blockquote p[data-type="attribution"]:before{font-style:normal;content:"—";-webkit-hyphens:none;hyphens:none;adobe-hyphenate:none}#sbo-rt-content p.right{text-align:right;margin:0}#sbo-rt-content div[data-type="footnotes"]{border-top:1px solid black;margin-top:2em}#sbo-rt-content sub,#sbo-rt-content sup{font-size:75%;line-height:0}#sbo-rt-content sup{vertical-align:super !important}#sbo-rt-content sub{vertical-align:sub}#sbo-rt-content p[data-type="footnote"]{font-size:90% !important;line-height:1.2em !important;margin-left:2.5em !important;text-indent:-2.3em !important}#sbo-rt-content p[data-type="footnote"] sup:first-child{display:inline-block !important;position:static !important;width:2em !important;text-align:right !important;font-size:100% !important;padding-right:.5em !important;top:-2px !important}#sbo-rt-content p[data-type="footnote"] a[href$="-marker"]{font-family:sans-serif !important;font-size:90% !important;color:#8e0012 !important}#sbo-rt-content p[data-type="footnote"] a[data-type="xref"]{margin:0 !important;padding:0 !important;text-indent:0 !important}#sbo-rt-content a[data-type="noteref"]{font-family:sans-serif !important;color:#8e0012;margin-left:0;padding-left:0}#sbo-rt-content div.refentry p.refname{font-size:1em;font-family:sans-serif,"DejaVuSans";font-weight:bold;margin-bottom:5px;overflow:auto;width:100%}#sbo-rt-content div.refentry{width:100%;display:block;margin-top:2em}#sbo-rt-content div.refsynopsisdiv{display:block;clear:both}#sbo-rt-content div.refentry header{page-break-inside:avoid !important;display:block;break-inside:avoid !important;padding-top:0;border-bottom:1px solid #000}#sbo-rt-content div.refsect1 h6{font-size:.9em;font-family:sans-serif,"DejaVuSans";font-weight:bold}#sbo-rt-content div.refsect1{margin-top:3em}#sbo-rt-content ul.references li{list-style-type:none !important;text-indent:-24px !important}#sbo-rt-content dl{margin-bottom:1.5em !important}#sbo-rt-content dt{padding-top:10px !important;padding-bottom:0 !important;line-height:1.25rem;font-style:italic}#sbo-rt-content dl.calloutlist dt{padding-top:0 !important;line-height:0 !important;margin-bottom:-1.5em !important;}#sbo-rt-content dt code{font-style:normal !important}#sbo-rt-content div.preface dt em code{font-style:italic !important}#sbo-rt-content dd{margin:10px 0 .25em 1.5em !important;line-height:1.65em !important;font-family:"Noto serif",serif}#sbo-rt-content dd p{padding:0 !important;margin:0 0 10px !important}#sbo-rt-content dd ol,#sbo-rt-content dd ul{padding-left:.25em !important;margin-top:0;margin-bottom:0}#sbo-rt-content dd li{margin-top:0 !important;margin-bottom:0 !important;padding-top:0;padding-bottom:.5em;line-height:1 !important}#sbo-rt-content dd li:last-child{padding-bottom:0 !important}#sbo-rt-content dd,#sbo-rt-content li{text-align:left}#sbo-rt-content ul,#sbo-rt-content ul>li{list-style-type:disc}#sbo-rt-content ol ul,#sbo-rt-content ol ul>li,#sbo-rt-content ul ol ul,#sbo-rt-content ul ol ul>li,#sbo-rt-content ul ul,#sbo-rt-content ul ul>li{list-style-type:"– " !important}#sbo-rt-content ul ul ul,#sbo-rt-content ul ul ul>li{list-style-type:circle}#sbo-rt-content ol,#sbo-rt-content ol>li,#sbo-rt-content ol ul ol,#sbo-rt-content ol ul ol>li,#sbo-rt-content ul ol,#sbo-rt-content ul ol>li{list-style-type:decimal}#sbo-rt-content ol ol,#sbo-rt-content ol ol>li{list-style-type:lower-alpha !important}#sbo-rt-content ol ol ol,#sbo-rt-content ol ol ol>li{list-style-type:lower-roman}#sbo-rt-content ul ol li,#sbo-rt-content ol ol li{list-style:lower-alpha !important}#sbo-rt-content ol,#sbo-rt-content ul{list-style-position:outside;margin:15px 0 15px 1.25em;padding-left:2.25em}#sbo-rt-content ol li,#sbo-rt-content ul li{margin:.5em 0 .65em;line-height:125%}#sbo-rt-content div.orderedlistalpha{list-style-type:upper-alpha}#sbo-rt-content table.simplelist,#sbo-rt-content ul.simplelist{margin:15px 0 15px 20px !important}#sbo-rt-content ul.simplelist li{list-style-type:none !important;padding:5px 0}#sbo-rt-content table.simplelist td{border:none}#sbo-rt-content table.simplelist tr{border-bottom:none}#sbo-rt-content table.simplelist tr:nth-of-type(even){background-color:transparent}#sbo-rt-content dl.calloutlist p:first-child{margin-top:-25px !important}#sbo-rt-content dl.calloutlist dd{padding-left:0;margin-top:-25px}#sbo-rt-content dl.calloutlist img,#sbo-rt-content a.co img{padding:0}#sbo-rt-content div.toc ol{margin-top:8px !important;margin-bottom:8px !important;margin-left:0 !important;padding-left:0 !important}#sbo-rt-content div.toc ol ol{margin-left:30px !important;padding-left:0 !important}#sbo-rt-content div.toc ol li{list-style-type:none}#sbo-rt-content div.toc a{color:#8e0012}#sbo-rt-content div.toc ol a{font-size:1em;font-weight:bold}#sbo-rt-content div.toc ol>li>ol a{font-weight:bold;font-size:1em}#sbo-rt-content div.toc ol>li>ol>li>ol a{text-decoration:none;font-weight:normal;font-size:1em}#sbo-rt-content div.tip,#sbo-rt-content div[data-type="tip"],#sbo-rt-content div.note,#sbo-rt-content div[data-type="note"],#sbo-rt-content div.warning,#sbo-rt-content div[data-type="warning"],#sbo-rt-content div[data-type="caution"],#sbo-rt-content div[data-type="important"]{margin:30px !important;font-size:90%;padding:10px 8px 20px 8px !important;page-break-inside:avoid}#sbo-rt-content div.tip ol,#sbo-rt-content div.tip ul,#sbo-rt-content div[data-type="tip"] ol,#sbo-rt-content div[data-type="tip"] ul,#sbo-rt-content div.note ol,#sbo-rt-content div.note ul,#sbo-rt-content div[data-type="note"] ol,#sbo-rt-content div[data-type="note"] ul,#sbo-rt-content div.warning ol,#sbo-rt-content div.warning ul,#sbo-rt-content div[data-type="warning"] ol,#sbo-rt-content div[data-type="warning"] ul,#sbo-rt-content div[data-type="caution"] ol,#sbo-rt-content div[data-type="caution"] ul,#sbo-rt-content div[data-type="important"] ol,#sbo-rt-content div[data-type="important"] ul{margin-left:1.5em !important}#sbo-rt-content div.tip,#sbo-rt-content div[data-type="tip"],#sbo-rt-content div.note,#sbo-rt-content div[data-type="note"]{border:1px solid #BEBEBE;background-color:transparent}#sbo-rt-content div.warning,#sbo-rt-content div[data-type="warning"],#sbo-rt-content div[data-type="caution"],#sbo-rt-content div[data-type="important"]{border:1px solid #BC8F8F}#sbo-rt-content div.tip h3,#sbo-rt-content div[data-type="tip"] h6,#sbo-rt-content div[data-type="tip"] h1,#sbo-rt-content div.note h3,#sbo-rt-content div[data-type="note"] h6,#sbo-rt-content div[data-type="note"] h1,#sbo-rt-content div.warning h3,#sbo-rt-content div[data-type="warning"] h6,#sbo-rt-content div[data-type="warning"] h1,#sbo-rt-content div[data-type="caution"] h6,#sbo-rt-content div[data-type="caution"] h1,#sbo-rt-content div[data-type="important"] h1,#sbo-rt-content div[data-type="important"] h6{font-weight:bold;font-size:110%;font-family:sans-serif !important;text-transform:uppercase;letter-spacing:1px;text-align:center;margin:4px 0 6px !important}#sbo-rt-content div[data-type="tip"] figure h6,#sbo-rt-content div[data-type="note"] figure h6,#sbo-rt-content div[data-type="warning"] figure h6,#sbo-rt-content div[data-type="caution"] figure h6,#sbo-rt-content div[data-type="important"] figure h6{font-family:serif !important}#sbo-rt-content div.tip h3,#sbo-rt-content div[data-type="tip"] h6,#sbo-rt-content div.note h3,#sbo-rt-content div[data-type="note"] h6,#sbo-rt-content div[data-type="tip"] h1,#sbo-rt-content div[data-type="note"] h1{color:#737373}#sbo-rt-content div.warning h3,#sbo-rt-content div[data-type="warning"] h6,#sbo-rt-content div[data-type="caution"] h6,#sbo-rt-content div[data-type="important"] h6,#sbo-rt-content div[data-type="warning"] h1,#sbo-rt-content div[data-type="caution"] h1,#sbo-rt-content div[data-type="important"] h1{color:#C67171}#sbo-rt-content div.sect1[title="Safari® Books Online"] div.note,#sbo-rt-content div.safarienabled{background-color:transparent;margin:8px 0 0 !important;border:0 solid #BEBEBE;font-size:100%;padding:0 !important;page-break-inside:avoid}#sbo-rt-content div.sect1[title="Safari® Books Online"] div.note h3,#sbo-rt-content div.safarienabled h6{display:none}#sbo-rt-content .author-date-bib li{list-style-type:none;margin-left:0;padding-left:18pt;text-indent:-18pt}#sbo-rt-content div.table,#sbo-rt-content table{margin:15px 0 30px 0 !important;max-width:100%;border:none !important;background:none;display:block;overflow-x:auto}#sbo-rt-content div.table,#sbo-rt-content div.informaltable,#sbo-rt-content table{page-break-inside:avoid}#sbo-rt-content table li{margin:10px 0 0 .25em !important}#sbo-rt-content tr,#sbo-rt-content tr td{border-bottom:1px solid #c3c3c3}#sbo-rt-content thead td,#sbo-rt-content thead th{border-bottom:#9d9d9d 1px solid !important;border-top:#9d9d9d 1px solid !important;vertical-align:bottom}#sbo-rt-content tr:nth-of-type(even){background-color:#f1f6fc}#sbo-rt-content thead,#sbo-rt-content tbody th{font-family:sans-serif;font-weight:bold}#sbo-rt-content td,#sbo-rt-content th{display:table-cell;padding:.5em !important;text-align:left !important;vertical-align:top;font-size:95% !important;min-width:6rem}#sbo-rt-content div.informaltable table{margin:10px auto !important}#sbo-rt-content div.informaltable table tr{border-bottom:none}#sbo-rt-content div.informaltable table tr:nth-of-type(even){background-color:transparent}#sbo-rt-content div.informaltable td,#sbo-rt-content div.informaltable th{border:#9d9d9d 1px solid}#sbo-rt-content div.table-title,#sbo-rt-content table caption{font-weight:normal;font-style:italic;font-family:serif;font-size:1em;margin:10px 0 10px 0 !important;padding:0;page-break-after:avoid;text-align:left !important}#sbo-rt-content table pre{font-size:95%;margin:0 !important;padding:0 !important}#sbo-rt-content table code{font-size:smaller;word-break:break-all}#sbo-rt-content table.border td{border-bottom:.25pt solid #000}#sbo-rt-content table.border tbody>tr:last-child>td{border-bottom:transparent}#sbo-rt-content table.stafflist_table{text-align:left;border:none;margin:0}#sbo-rt-content table.stafflist_table tr,#sbo-rt-content table.stafflist_table td,#sbo-rt-content table.stafflist_table th{border-bottom:none !important;border-top:none !important;font-size:1em;margin:0}#sbo-rt-content table.stafflist_table td{margin:0;padding:0 1rem 0 0}#sbo-rt-content table.stafflist_table tr:nth-of-type(even){background-color:transparent}#sbo-rt-content div.equation,#sbo-rt-content div[data-type="equation"]{margin:10px 0 15px 0 !important}#sbo-rt-content div.equation-title,#sbo-rt-content div[data-type="equation"] h5{font-style:italic;font-weight:normal;font-family:serif !important;font-size:90%;margin:20px 0 10px 0 !important;page-break-after:avoid}#sbo-rt-content div.equation-contents{margin-left:20px}#sbo-rt-content div[data-type="equation"] math{font-size:calc(.35em + 1vw)}#sbo-rt-content span.inlinemediaobject{height:.85em;display:inline-block;margin-bottom:.2em}#sbo-rt-content span.inlinemediaobject img{margin:0;height:.85em}#sbo-rt-content div.informalequation{margin:20px 0 20px 20px;width:75%}#sbo-rt-content div.informalequation img{width:75%}#sbo-rt-content div.index{text-indent:0}#sbo-rt-content div.index h3{padding:.25em;margin-top:1em !important;background-color:#F0F0F0}#sbo-rt-content div.index li{line-height:130%;list-style-type:none}#sbo-rt-content div.index a.indexterm{color:#8e0012 !important}#sbo-rt-content div.index ul{margin-left:0 !important;padding-left:0 !important}#sbo-rt-content div.index ul ul{margin-left:2em !important;margin-top:0 !important}#sbo-rt-content code.boolean,#sbo-rt-content .navy{color:rgb(0,0,128);}#sbo-rt-content code.character,#sbo-rt-content .olive{color:rgb(128,128,0);}#sbo-rt-content code.comment,#sbo-rt-content .blue{color:rgb(0,0,255);}#sbo-rt-content code.conditional,#sbo-rt-content .limegreen{color:rgb(50,205,50);}#sbo-rt-content code.constant,#sbo-rt-content .darkorange{color:rgb(255,140,0);}#sbo-rt-content code.debug,#sbo-rt-content .darkred{color:rgb(139,0,0);}#sbo-rt-content code.define,#sbo-rt-content .darkgoldenrod,#sbo-rt-content .gold{color:rgb(184,134,11);}#sbo-rt-content code.delimiter,#sbo-rt-content .dimgray{color:rgb(105,105,105);}#sbo-rt-content code.error,#sbo-rt-content .red{color:rgb(255,0,0);}#sbo-rt-content code.exception,#sbo-rt-content .salmon{color:rgb(250,128,11);}#sbo-rt-content code.float,#sbo-rt-content .steelblue{color:rgb(70,130,180);}#sbo-rt-content pre code.function,#sbo-rt-content .green{color:rgb(0,128,0);}#sbo-rt-content code.identifier,#sbo-rt-content .royalblue{color:rgb(65,105,225);}#sbo-rt-content code.ignore,#sbo-rt-content .gray{color:rgb(128,128,128);}#sbo-rt-content code.include,#sbo-rt-content .purple{color:rgb(128,0,128);}#sbo-rt-content code.keyword,#sbo-rt-content .sienna{color:rgb(160,82,45);}#sbo-rt-content code.label,#sbo-rt-content .deeppink{color:rgb(255,20,147);}#sbo-rt-content code.macro,#sbo-rt-content .orangered{color:rgb(255,69,0);}#sbo-rt-content code.number,#sbo-rt-content .brown{color:rgb(165,42,42);}#sbo-rt-content code.operator,#sbo-rt-content .black{color:#000;}#sbo-rt-content code.preCondit,#sbo-rt-content .teal{color:rgb(0,128,128);}#sbo-rt-content code.preProc,#sbo-rt-content .fuschia{color:rgb(255,0,255);}#sbo-rt-content code.repeat,#sbo-rt-content .indigo{color:rgb(75,0,130);}#sbo-rt-content code.special,#sbo-rt-content .saddlebrown{color:rgb(139,69,19);}#sbo-rt-content code.specialchar,#sbo-rt-content .magenta{color:rgb(255,0,255);}#sbo-rt-content code.specialcomment,#sbo-rt-content .seagreen{color:rgb(46,139,87);}#sbo-rt-content code.statement,#sbo-rt-content .forestgreen{color:rgb(34,139,34);}#sbo-rt-content code.storageclass,#sbo-rt-content .plum{color:rgb(221,160,221);}#sbo-rt-content code.string,#sbo-rt-content .darkred{color:rgb(139,0,0);}#sbo-rt-content code.structure,#sbo-rt-content .chocolate{color:rgb(210,106,30);}#sbo-rt-content code.tag,#sbo-rt-content .darkcyan{color:rgb(0,139,139);}#sbo-rt-content code.todo,#sbo-rt-content .black{color:#000;}#sbo-rt-content code.type,#sbo-rt-content .mediumslateblue{color:rgb(123,104,238);}#sbo-rt-content code.typedef,#sbo-rt-content .darkgreen{color:rgb(0,100,0);}#sbo-rt-content code.underlined{text-decoration:underline;}#sbo-rt-content pre code.hll{background-color:#ffc}#sbo-rt-content pre code.c{color:#09F;font-style:italic}#sbo-rt-content pre code.err{color:#A00}#sbo-rt-content pre code.k{color:#069;font-weight:bold}#sbo-rt-content pre code.o{color:#555}#sbo-rt-content pre code.cm{color:#35586C;font-style:italic}#sbo-rt-content pre code.cp{color:#099}#sbo-rt-content pre code.c1{color:#35586C;font-style:italic}#sbo-rt-content pre code.cs{color:#35586C;font-weight:bold;font-style:italic}#sbo-rt-content pre code.gd{background-color:#FCC}#sbo-rt-content pre code.ge{font-style:italic}#sbo-rt-content pre code.gr{color:#F00}#sbo-rt-content pre code.gh{color:#030;font-weight:bold}#sbo-rt-content pre code.gi{background-color:#CFC}#sbo-rt-content pre code.go{color:#000}#sbo-rt-content pre code.gp{color:#009;font-weight:bold}#sbo-rt-content pre code.gs{font-weight:bold}#sbo-rt-content pre code.gu{color:#030;font-weight:bold}#sbo-rt-content pre code.gt{color:#9C6}#sbo-rt-content pre code.kc{color:#069;font-weight:bold}#sbo-rt-content pre code.kd{color:#069;font-weight:bold}#sbo-rt-content pre code.kn{color:#069;font-weight:bold}#sbo-rt-content pre code.kp{color:#069}#sbo-rt-content pre code.kr{color:#069;font-weight:bold}#sbo-rt-content pre code.kt{color:#078;font-weight:bold}#sbo-rt-content pre code.m{color:#F60}#sbo-rt-content pre code.s{color:#C30}#sbo-rt-content pre code.na{color:#309}#sbo-rt-content pre code.nb{color:#366}#sbo-rt-content pre code.nc{color:#0A8;font-weight:bold}#sbo-rt-content pre code.no{color:#360}#sbo-rt-content pre code.nd{color:#99F}#sbo-rt-content pre code.ni{color:#999;font-weight:bold}#sbo-rt-content pre code.ne{color:#C00;font-weight:bold}#sbo-rt-content pre code.nf{color:#C0F}#sbo-rt-content pre code.nl{color:#99F}#sbo-rt-content pre code.nn{color:#0CF;font-weight:bold}#sbo-rt-content pre code.nt{color:#309;font-weight:bold}#sbo-rt-content pre code.nv{color:#033}#sbo-rt-content pre code.ow{color:#000;font-weight:bold}#sbo-rt-content pre code.w{color:#bbb}#sbo-rt-content pre code.mf{color:#F60}#sbo-rt-content pre code.mh{color:#F60}#sbo-rt-content pre code.mi{color:#F60}#sbo-rt-content pre code.mo{color:#F60}#sbo-rt-content pre code.sb{color:#C30}#sbo-rt-content pre code.sc{color:#C30}#sbo-rt-content pre code.sd{color:#C30;font-style:italic}#sbo-rt-content pre code.s2{color:#C30}#sbo-rt-content pre code.se{color:#C30;font-weight:bold}#sbo-rt-content pre code.sh{color:#C30}#sbo-rt-content pre code.si{color:#A00}#sbo-rt-content pre code.sx{color:#C30}#sbo-rt-content pre code.sr{color:#3AA}#sbo-rt-content pre code.s1{color:#C30}#sbo-rt-content pre code.ss{color:#A60}#sbo-rt-content pre code.bp{color:#366}#sbo-rt-content pre code.vc{color:#033}#sbo-rt-content pre code.vg{color:#033}#sbo-rt-content pre code.vi{color:#033}#sbo-rt-content pre code.il{color:#F60}#sbo-rt-content pre code.g{color:#050}#sbo-rt-content pre code.l{color:#C60}#sbo-rt-content pre code.l{color:#F90}#sbo-rt-content pre code.n{color:#008}#sbo-rt-content pre code.nx{color:#008}#sbo-rt-content pre code.py{color:#96F}#sbo-rt-content pre code.p{color:#000}#sbo-rt-content pre code.x{color:#F06}#sbo-rt-content div.blockquote_sampler_toc{width:95%;margin:5px 5px 5px 10px !important}#sbo-rt-content div{font-family:serif;text-align:left}#sbo-rt-content .gray-background,#sbo-rt-content .reverse-video{background:#2E2E2E;color:#FFF}#sbo-rt-content .light-gray-background{background:#A0A0A0}#sbo-rt-content .preserve-whitespace{white-space:pre-wrap}#sbo-rt-content pre.break-code,#sbo-rt-content code.break-code,#sbo-rt-content .break-code pre,#sbo-rt-content .break-code code{word-break:break-all}#sbo-rt-content span.gray{color:#4C4C4C}#sbo-rt-content .width-10,#sbo-rt-content figure.width-10 img{width:10% !important}#sbo-rt-content .width-20,#sbo-rt-content figure.width-20 img{width:20% !important}#sbo-rt-content .width-30,#sbo-rt-content figure.width-30 img{width:30% !important}#sbo-rt-content .width-40,#sbo-rt-content figure.width-40 img{width:40% !important}#sbo-rt-content .width-50,#sbo-rt-content figure.width-50 img{width:50% !important}#sbo-rt-content .width-60,#sbo-rt-content figure.width-60 img{width:60% !important}#sbo-rt-content .width-70,#sbo-rt-content figure.width-70 img{width:70% !important}#sbo-rt-content .width-80,#sbo-rt-content figure.width-80 img{width:80% !important}#sbo-rt-content .width-90,#sbo-rt-content figure.width-90 img{width:90% !important}#sbo-rt-content .width-full,#sbo-rt-content .width-100{width:100% !important}#sbo-rt-content .sc{text-transform:none !important}#sbo-rt-content .right{float:none !important}#sbo-rt-content a.totri-footnote{padding:0 !important;display:inline}#sbo-rt-content table p[data-type="footnote"]{padding-left:1em !important}#sbo-rt-content figure.width-10,#sbo-rt-content figure.width-20,#sbo-rt-content figure.width-30,#sbo-rt-content figure.width-40,#sbo-rt-content figure.width-50,#sbo-rt-content figure.width-60,#sbo-rt-content figure.width-70,#sbo-rt-content figure.width-80,#sbo-rt-content figure.width-90{width:auto !important}#sbo-rt-content ol ul>li{list-style-type:disc !important}#sbo-rt-content ul.simplelist li{list-style-type:none !important}#sbo-rt-content table td.white1{background-color:#fff}#sbo-rt-content .plain2{font-style:normal !important}
+</style>
+<style>
+
+html, body { margin: 0; padding: 0; background: #ffffff; }
+body { font-family: Georgia, "Times New Roman", "Songti SC", serif; color: #1a1a1a; }
+#page { max-width: 42em; margin: 0 auto; padding: 48px 56px 72px; }
+#sbo-rt-content { font-size: 17px; line-height: 1.65; }
+#sbo-rt-content h1 { font-size: 1.9em; margin: 0 0 1em; }
+#sbo-rt-content p { margin: 0 0 1em; text-align: justify; }
+#sbo-rt-content p.byline { margin-top: 2em; text-align: right; font-style: italic; }
+#sbo-rt-content img { max-width: 100%; height: auto; }
+.meta { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 12.5px; color: #777;
+  border-bottom: 1px solid #e5e5e5; padding-bottom: 14px; margin-bottom: 34px; line-height: 1.5; }
+@media print {
+  #page { max-width: none; padding: 0; }
+  #sbo-rt-content { font-size: 11.5pt; }
+  .meta { display: none; }
+  #sbo-rt-content h1 { break-after: avoid; }
+  #sbo-rt-content p, #sbo-rt-content li { break-inside: avoid; }
+  @page { margin: 20mm 18mm; }
+}
+</style>
+
+<style id="zh-bilingual-style">
+/*
+ * Bilingual companion blocks (Simplified Chinese).
+ *
+ * Each Chinese node is injected right after its English source and reuses the
+ * English tag plus the source's copied class/data-type/style attributes, so
+ * font size, weight, italics, text alignment and hanging indents already match
+ * the English automatically (no font/colour overrides here). These rules only:
+ *   1) give CJK text a looser, more readable line-height, and
+ *   2) pull every Chinese block tight to the English it translates — and move
+ *      chapter/section underlines below the pair — so the two read as one unit.
+ */
+
+/* 1. Comfortable CJK reading rhythm (looser than the Latin source). */
+#sbo-rt-content p.zh,
+#sbo-rt-content li > div.zh,
+#sbo-rt-content dd.zh,
+#sbo-rt-content td .zh,
+#sbo-rt-content th .zh {
+  line-height: 1.6 !important;
+}
+
+/* 2a. Each Chinese block hugs the English above it. */
+#sbo-rt-content p.zh,
+#sbo-rt-content dd.zh,
+#sbo-rt-content li > div.zh {
+  margin-top: 0.35em !important;
+}
+#sbo-rt-content dt.zh {
+  margin-top: 0.35em !important;
+  padding-top: 0 !important;
+}
+#sbo-rt-content h1.zh,
+#sbo-rt-content h2.zh,
+#sbo-rt-content h3.zh,
+#sbo-rt-content h4.zh,
+#sbo-rt-content h5.zh,
+#sbo-rt-content h6.zh {
+  margin-top: 0.2em !important;
+}
+
+/* 2b. Tighten the English source toward the Chinese translation that follows,
+ *     so an English block and its Chinese twin group together. :has() lets us
+ *     target only English elements that actually have a zh sibling. */
+#sbo-rt-content p:has(+ p.zh),
+#sbo-rt-content dt:has(+ dt.zh),
+#sbo-rt-content dd:has(+ dd.zh) {
+  margin-bottom: 0.2em !important;
+}
+#sbo-rt-content h1:has(+ h1.zh),
+#sbo-rt-content h2:has(+ h2.zh),
+#sbo-rt-content h3:has(+ h3.zh),
+#sbo-rt-content h4:has(+ h4.zh),
+#sbo-rt-content h5:has(+ h5.zh),
+#sbo-rt-content h6:has(+ h6.zh) {
+  margin-bottom: 0.1em !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+</style>
+</head>
+<body>
+<div id="page">
+<div class="meta">Preface — <em>Site Reliability Engineering, 2nd Edition</em> (O'Reilly)<br>Saved from learning.oreilly.com</div>
+<div id="sbo-rt-content"><section data-type="preface" epub:type="preface" data-pdf-bookmark="Preface"><div class="preface" id="preface">
+<h1>Preface</h1>
+<h1 class="zh" lang="zh-CN">前言</h1>
+
+
+
+<p>Ten years ago, the first edition of <em>Site Reliability Engineering</em> set
+out to explain what Site Reliability Engineering (SRE) is and how Site
+Reliability Engineers (SREs) do it at Google. In the subsequent years,
+the role has become widespread beyond Google, and the approach we
+described has become broadly accepted in the industry. Meanwhile, the
+technology underpinning running large-scale distributed computing
+systems has become much more standardized and commoditized: unless you
+have very specific needs, you’re unlikely to build your own
+<a href="https://sre.google/sre-book/load-balancing-frontend">load balancer</a> or
+your own
+<a href="https://sre.google/sre-book/managing-critical-state">distributed
+consensus system with Paxos</a>—you’re probably either buying it as a
+service from a cloud provider or running an instance of open source
+software.</p>
+<p class="zh" lang="zh-CN">十年前，<em>Site Reliability Engineering</em> 第 1 版着手阐释什么是站点可靠性工程（SRE），以及 Google 的站点可靠性工程师（SRE）是如何践行它的。在随后的岁月里，这一角色已在 Google 之外广为普及，我们所描述的方法也被业界广泛接受。与此同时，支撑大规模分布式计算系统运行的技术，已经高度标准化，成了现成的通用件：除非你有非常特殊的需求，否则你多半不会去自建<a href="https://sre.google/sre-book/load-balancing-frontend">负载均衡器</a>，也不会用 Paxos 自建<a href="https://sre.google/sre-book/managing-critical-state">分布式共识系统</a>——你很可能要么直接买云厂商的托管服务，要么自己跑一套开源软件。</p>
+
+
+<p>Furthermore, as we write this, AI is in the process of radically
+accelerating change in our field, as well as many others. We have no
+crystal ball to forecast what the future of running production
+environments will be like in another 10 years—or even, quite
+possibly, 10 <em>months</em>.<sup><a data-type="noteref" id="id995-marker" href="https://learning.oreilly.com/library/view/-/9798341607675/preface01.html#id995">1</a></sup></p>
+<p class="zh" lang="zh-CN">而且就在我们写这本书的时候，AI 正让我们这个行业（以及其他许多行业）的变化大大提速。我们没有水晶球，没法预言再过 10 年，甚至很可能只要再过 10 个<em>月</em>，运维生产环境会变成什么样子。<sup><a data-type="noteref" href="https://learning.oreilly.com/library/view/-/9798341607675/preface01.html#id995">1</a></sup></p>
+
+
+<p>But what hasn’t changed? The fundamentals: SREs continue to be
+<em>engineers</em>, focusing on system <em>reliability</em>, for large-scale
+distributed computing <em>services</em>.</p>
+<p class="zh" lang="zh-CN">那什么没变？最根本的东西没变：SRE 仍然是<em>工程师</em>，关注的仍然是大规模分布式计算<em>服务</em>的系统<em>可靠性</em>。</p>
+
+
+<p>All of those trends, combined with what we know has stayed the same, have
+caused us to shift the focus of this edition toward the things we
+didn’t address in much detail the first time around—things that
+support well-functioning teams: the sociotechnical aspects of SRE. As a
+result, you’ll see more on understanding the value of what we do and
+how to provide that value and represent it within an organization—which
+was important 10 years ago but is even more important now. Something we
+also learned since the first edition is just how widespread this
+work—managing the whole lifecycle of software—is, and by how many
+different names it is called. We wrote in
+<a href="https://sre.google/books"><em>The Site Reliability Workbook</em></a> about the
+relationship between <a href="https://sre.google/workbook/how-sre-relates">DevOps
+and SRE</a>, but platform engineering has emerged since, and staff
+engineers often have that combination of deep expertise and holistic
+responsibility that is the hallmark of SRE. Regardless of what the role
+is called, though, we hope the material in the book will be of relevance
+to those who care about production.</p>
+<p class="zh" lang="zh-CN">这些变化，加上我们知道一直没变的那些东西，让我们把这一版的重心放到了第 1 版没怎么展开的内容上，也就是让团队运转良好的那些因素：SRE 的社会技术层面。所以这一版会多讲几件事：怎么理解我们工作的价值，怎么在组织里创造这份价值，又怎么让组织看到它。这件事 10 年前就很重要，现在更重要了。第 1 版出版后我们还发现，这类工作（管理软件的整个生命周期）其实到处都有，叫法也五花八门。我们在 <a href="https://sre.google/books"><em>The Site Reliability Workbook</em></a> 里讨论过 <a href="https://sre.google/workbook/how-sre-relates">DevOps 与 SRE</a> 的关系；但那之后又出现了平台工程，而资深工程师（staff engineer）往往既有很深的专业功底，又要对全局负责，这正是 SRE 的典型特征。不过，不管这个角色叫什么，我们都希望本书对所有关心生产环境的人有用。</p>
+
+
+<p>In the first edition, we used the metaphor of the work before and after
+the birth of a system being akin to labor and parenting. We believe this
+analogy still holds, especially in our current situation (see <a data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">Chapter 19</a>), where birthing a system has gotten easier but it’s not
+yet clear that parenting or housework has. So much of software
+engineering is the question of what you can successfully ignore, and the
+fact that there <em>is</em> a whole lifecycle cannot be ignored.</p>
+<p class="zh" lang="zh-CN">在第 1 版中，我们用了一个比喻：把系统诞生前后的工作，比作分娩与育儿。我们相信这一类比如今依然成立，尤其是在我们当下的处境中（见<a data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">第 19 章</a>）：如今让系统“出生”容易了，但“养育”和“家务”有没有跟着变容易，还很难说。软件工程很大程度上就是判断哪些东西可以放心不管；而系统<em>确实有</em>一整套生命周期这件事，恰恰不能不管。</p>
+
+
+<p>However, another concept from the software engineering
+discourse has gained prominence in the decade since our first edition: <a data-type="indexterm" data-primary="technical debt" id="id996"></a>technical debt. This is
+the term we use to capture the uneasy scenario we arrive at unintentionally
+when we have built the software on top of itself too much, and
+everything becomes difficult. Abstractions are stretched to their
+breaking point; pushing to production feels like trying to hammer a cube
+through a round hole, where the hammer occasionally bounces off and hits
+you in the knee. Eventually, you just want to stop and break apart the
+blocks of what you’ve built.</p>
+<p class="zh" lang="zh-CN">不过，第 1 版出版后的这十年里，软件工程圈还有一个概念越来越受关注：技术债。我们用这个词来形容一种让人头疼的局面：谁也没打算走到这一步，但软件在旧代码上一层层堆得太多，结果什么都变得很难做。各种抽象被撑到了极限；往生产环境推代码，就像硬要把方块锤进圆孔，锤子还时不时弹回来砸到你的膝盖。到最后，你只想停下来，把搭好的积木拆掉重来。</p>
+
+
+<p>We draw a comparison here to technical debt because, despite its ubiquity
+in software systems, it is often dismissed as only a source of developer
+sadness. But for those of us who care about production, technical debt
+is a leading indicator of something important: unreliability.</p>
+<p class="zh" lang="zh-CN">我们之所以在这里拿技术债来比较，是因为技术债在软件系统里随处可见，却常被看轻，好像它只不过是让开发者心烦的东西。但在我们这些关心生产环境的人看来，技术债是一个重要问题的先行指标，这个问题就是：不可靠。</p>
+
+
+<p>In the financial world, debt is not inherently bad. It is a leverage
+tool. You borrow capital to accelerate growth and invest in the future,
+accepting that you will pay it back with interest. In software, we do
+the same. We borrow from our future stability to ship a feature today,
+trading perhaps a robust architecture or the comprehensive testing that
+would have required more time and effort for speed to market.</p>
+<p class="zh" lang="zh-CN">在金融领域，负债本身并不是坏事，它是一种杠杆。你借钱来加快增长、投资未来，也接受以后要连本带息地还。做软件也是一样。我们向未来的稳定性借债，好让一个功能今天就能上线：为了更快推向市场，可能放弃了更稳健的架构，或者省掉了更全面的测试，因为这些都要多花时间和精力。</p>
+
+
+<p>But software debt, like financial debt, always demands repayment, with
+interest.</p>
+<p class="zh" lang="zh-CN">但软件欠下的债和金融债一样，迟早要连本带息地还。</p>
+
+
+<p>In production, that interest is paid in complexity, friction, and
+fragile systems. Every shortcut shrinks our margin for error. If we
+ignore the debt, the interest compounds silently. Eventually, if left
+unchecked, we face reliability bankruptcy. This isn’t just a slowdown in
+feature delivery; it is the outage that destroys user trust, or the
+codebase that’s so brittle that no one wants to work on it, much less
+deploy it.</p>
+<p class="zh" lang="zh-CN">在生产环境里，我们要为这笔利息付出代价：系统更复杂，做什么都更费劲，整个系统也更脆弱。每走一次捷径，我们的容错空间就小一点。如果一直不管这笔债，利息就会在不知不觉中越滚越多。任由它发展下去，最后就会落得“可靠性破产”。到那一步，问题就不只是新功能上线变慢了，而是会出现毁掉用户信任的大故障，或者代码库脆弱到没人愿意碰，更别说部署上线了。</p>
+
+
+<p>SRE is not a crusade for zero technical debt—a state that is both
+economically foolish and practically impossible for any system that is
+actually useful. Instead, SRE is the discipline of managing this risk
+portfolio. We are both engineers and production advisors, helping the
+organization decide when to borrow safely and when we must pay down the
+principal according to our agreed-upon risk ceilings, temporarily halting feature development to invest in repayment.</p>
+<p class="zh" lang="zh-CN">SRE 并不是要搞一场消灭技术债的运动。对任何真正有用的系统来说，追求零技术债既不划算，实际上也做不到。SRE 要做的，是管好这一组风险。我们既是工程师，也是生产环境的顾问，帮组织判断什么时候可以放心借债，什么时候必须按照大家事先商定的风险上限偿还本金，哪怕这意味着暂停功能开发，把精力投到还债上。</p>
+
+
+<p>This edition is about how we manage that balance. Many of the systems we
+run and the approaches we take have changed in the 10 years since the
+first edition, but this hasn’t: reliability is not a static state to be
+achieved and forgotten. It is an ongoing negotiation between complexity
+and business needs. The chapters that follow explore the tools, culture,
+and practices we use at Google to successfully navigate that complexity
+to provide reliable services.</p>
+<p class="zh" lang="zh-CN">这一版要讲的，就是我们如何把握这种平衡。第 1 版出版后的 10 年里，我们运维的很多系统、采用的很多方法都变了，但有一点没变：可靠性不是做到一次就能撂下不管的固定状态，而是要在复杂度和业务需求之间不断权衡、反复协商。接下来的各章会介绍我们在 Google 用到的工具、文化和实践，正是靠这些，我们才驾驭住了复杂度，提供了可靠的服务。</p>
+
+<aside data-type="sidebar" epub:type="sidebar"><div class="sidebar" id="preface_how_to_read_this_book">
+<h1>How to Read This Book</h1>
+<h1 class="zh" lang="zh-CN">如何阅读本书</h1>
+
+<p>Like the first edition, this book is a series of essays written by
+members and alumni of Google’s Site Reliability Engineering
+organization. This time, we have expanded our view with authors from our
+Google partner teams who work with Google Cloud customers, and even to case
+studies from Disney, Etsy, Microsoft, and Spotify. It’s much more like
+conference proceedings than it is like a standard book by a single author or a
+small number of authors. Each chapter is intended to be read as part
+of a coherent whole, but a good deal can be gained by focusing on
+whatever subject particularly interests you. Where other chapters or sections support or inform the text, we reference them so you can explore
+accordingly.</p>
+<p class="zh" lang="zh-CN">和第 1 版一样，这本书是一组文章的合集，作者是 Google 站点可靠性工程组织的在职和离职成员。这一次我们把视野放得更宽，请来了 Google 合作伙伴团队的作者（他们和 Google Cloud 的客户一起工作），还收录了 Disney、Etsy、Microsoft 和 Spotify 的案例。所以，比起一位或几位作者写的普通图书，它更像一本会议论文集。各章合起来是一个完整的整体，但只挑你特别感兴趣的主题来读，也会有不少收获。如果别的章节能支撑或补充正文内容，我们会标出引用，方便你顺着读下去。</p>
+
+
+<p>While the <a href="https://sre.google/books">first edition of this book</a> covered
+the foundational principles and practices of SRE, this edition delves
+into how these concepts and practices have developed and matured over the past decade. Additionally, we tackle some new topics: STPA and CAST (<a data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/ch12.html#ch12">Chapter 12</a>), and how AI is changing the SRE profession (Chapters <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">19</a>, <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch20.html#ch20">20</a>, and <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch22.html#ch22">22</a>). We chose not to spend much time on topics
+that are evergreen and were well covered in the previous edition. As a
+result, you’ll see that the chapters don’t map one to one from the first
+edition to this one. It’s helpful to think of this work as a supplement
+to that book, rather than a wholesale replacement.</p>
+<p class="zh" lang="zh-CN"><a href="https://sre.google/books">本书第 1 版</a>讲的是 SRE 的基础原则和实践；这一版则深入讨论，这些理念和实践在过去十年里是怎样发展成熟的。另外，我们还加了一些新主题：STPA 和 CAST（<a data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/ch12.html#ch12">第 12 章</a>），以及 AI 正在怎样改变 SRE 这个职业（第 <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">19</a>、<a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch20.html#ch20">20</a> 和 <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch22.html#ch22">22</a> 章）。有些主题一直不过时，上一版也已经讲得很充分，这次就不再多花篇幅了。所以你会发现，这一版的章节和第 1 版并不是一一对应的。最好把这本书看作第 1 版的补充，而不是全盘替代。</p>
+
+
+<p>You don’t need to read the book in any particular order, though we’d suggest at
+least starting with Chapters <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">1</a>, <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch02.html#ch02">2</a>, and <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch04.html#ch04">4</a>. Reading
+cover to cover is, of course, also useful and possible. The chapters are
+grouped thematically into six parts: <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part01.html#parti">Part I, “SRE in Context”</a>; <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part02.html#partii">Part II, “Sociotechnical Foundations”</a>; <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part03.html#partiii">Part III, “Situational Awareness and 
+<span class="keep-together">Continuous Preparedness</span>”</a>; <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part04.html#partiv">Part IV, “Infrastructure Design”</a>; <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part05.html#partv">Part V, “Resilient Products and 
+<span class="keep-together">Emergent Reliability</span>”</a>; and <a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part06.html#partvi">Part VI, “Outlook”</a>. Each part has a small introduction that highlights what the individual chapters are
+about.</p>
+<p class="zh" lang="zh-CN">这本书不必按固定顺序读，不过我们建议至少先读第 <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">1</a>、<a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch02.html#ch02">2</a> 和 <a data-type="xref" data-xrefstyle="select:labelnumber" href="https://learning.oreilly.com/library/view/-/9798341607675/ch04.html#ch04">4</a> 章。当然，从头读到尾也完全可以，同样有收获。全书按主题分成六个部分：<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part01.html#parti">第一部分《情境中的 SRE》</a>；<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part02.html#partii">第二部分《社会技术基础》</a>；<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part03.html#partiii">第三部分《态势感知与持续备战》</a>；<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part04.html#partiv">第四部分《基础设施设计》</a>；<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part05.html#partv">第五部分《有韧性的产品与涌现式可靠性》</a>；以及<a data-xrefstyle="part-num-title" data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/part06.html#partvi">第六部分《展望》</a>。每个部分开头都有一小段导读，简单介绍其中各章讲什么。</p>
+
+
+<p>We hope this book will be at least as useful and interesting to you as
+putting it together was for us.</p>
+<p class="zh" lang="zh-CN">希望你读这本书的收获和乐趣，至少不亚于我们编写它时的体会。</p>
+
+
+<p class="right">— The Editors</p>
+<p class="right zh" lang="zh-CN">——编者</p>
+
+</div></aside>
+
+
+
+
+
+
+<section data-type="sect1" class="pagebreak-before less_space" data-pdf-bookmark="Guidance for Specific Groups of Readers"><div class="sect1" id="preface_guidance_for_specific_groups_of_readers">
+<h1>Guidance for Specific Groups of Readers</h1>
+<h1 class="zh" lang="zh-CN">面向特定读者群体的指引</h1>
+
+
+<p>As we approached this book, it was helpful for us to think of broad
+categories of readers to address. We identified the following three groups
+to guide our writing:</p>
+<p class="zh" lang="zh-CN">开始写这本书时，我们发现先想清楚要写给哪几类读者，很有帮助。我们分出了下面三类读者，用来指导写作：</p>
+
+<dl>
+<dt>Aspiring SREs</dt>
+<dt class="zh" lang="zh-CN">有志成为 SRE 的人</dt>
+
+<dd>
+<p>Individuals who are new to core SRE concepts, such
+as recent graduates or those transitioning into SRE from another
+discipline</p>
+<p class="zh" lang="zh-CN">刚接触 SRE 核心概念的人，比如应届毕业生，或者从其他领域转做 SRE 的人</p>
+
+</dd>
+<dt>Practitioners</dt>
+<dt class="zh" lang="zh-CN">从业者</dt>
+
+<dd>
+<p>Seasoned technical engineers who are actively
+working hands-on in the SRE space</p>
+<p class="zh" lang="zh-CN">经验丰富、正在 SRE 一线动手干活的技术工程师</p>
+
+</dd>
+<dt>Leaders</dt>
+<dt class="zh" lang="zh-CN">管理者</dt>
+
+<dd>
+<p>Executives, managers, and C-suite individuals who need
+to understand the strategic, organizational, and business value of SRE</p>
+<p class="zh" lang="zh-CN">需要了解 SRE 在战略、组织和业务上有什么价值的高管、经理，以及 CEO、CTO 这类 C 级领导</p>
+
+</dd>
+</dl>
+
+<p>While no grouping or reading guide is perfect or perfectly
+comprehensive, here are some groupings of content you might find
+particularly helpful based upon which of these categories you fall into.</p>
+<p class="zh" lang="zh-CN">任何分类或阅读指南都不可能十全十美、面面俱到。下面按读者类别，列出你可能特别用得上的内容。</p>
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Aspiring SREs: Context and Overviews"><div class="sect2" id="preface_the_aspiring_sre_context_and_overviews">
+<h2>Aspiring SREs: Context and Overviews</h2>
+<h2 class="zh" lang="zh-CN">有志成为 SRE 的人：背景与概览</h2>
+
+
+<p>We recommend the following resources for aspiring SREs:</p>
+<p class="zh" lang="zh-CN">对于有志成为 SRE 的人，我们推荐以下资源：</p>
+
+<dl>
+<dt>The <a href="https://sre.google/books">first edition of this book</a></dt>
+<dt class="zh" lang="zh-CN"><a href="https://sre.google/books">本书第 1 版</a></dt>
+
+<dd>
+<p>Covers the
+foundational principles and practices of SRE.</p>
+<p class="zh" lang="zh-CN">讲 SRE 的基础原则和实践。</p>
+
+</dd>
+<dt>The <a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/foreword01.html#foreword">Foreword</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/foreword01.html#foreword">序言</a></dt>
+
+<dd>
+<p>Sets the historical stage for this book, reflecting on the
+last decade of SRE and introducing overarching concepts like
+“reliability by default.”</p>
+<p class="zh" lang="zh-CN">交代本书的历史背景，回顾 SRE 过去十年的发展，并引出“默认即可靠”等贯穿全书的核心概念。</p>
+
+</dd>
+<dt>Introductions to each of the six parts</dt>
+<dt class="zh" lang="zh-CN">六个部分各自的导读</dt>
+
+<dd>
+<p>Help orient newcomers to the themes, definitions, and
+upcoming technical concepts of each major section of the book.</p>
+<p class="zh" lang="zh-CN">帮新读者了解每个部分的主题、关键定义，以及接下来会讲到的技术概念。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">Chapter 1, “Introduction: 
+<span class="keep-together">Modeling What We Do and Why</span>”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">第 1 章《引言：为我们的工作及其缘由建模》</a></dt>
+
+<dd>
+<p>Serves as a structural roadmap to
+orient the reader to the landscape of SRE concepts covered in this book.</p>
+<p class="zh" lang="zh-CN">相当于全书的路线图，帮你对本书涉及的 SRE 概念先有个全局认识。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch03.html#ch03">Chapter 3, “Trends in Production”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch03.html#ch03">第 3 章《生产环境中的趋势》</a></dt>
+
+<dd>
+<p>Explains how modern production ecosystems have
+evolved, in addition to the broad industry shifts (CapEx to OpEx, virtual machines to
+containers, FinOps) that establish the parameters of modern production.</p>
+<p class="zh" lang="zh-CN">讲现代生产环境是怎样一步步演变过来的，以及决定了它基本面貌的几大行业变化：从资本支出转向运营支出（CapEx → OpEx）、从虚拟机转向容器，以及 FinOps。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch10.html#ch10">Chapter 10, “Incident Management and On-Call”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch10.html#ch10">第 10 章《事故管理与 on-call 值班》</a></dt>
+
+<dd>
+<p>Discusses setting up on-call
+rotations, establishing incident response teams (IRTs), and mitigating
+live outages.</p>
+<p class="zh" lang="zh-CN">讨论怎样安排 on-call 轮值、组建事故响应团队（incident response team, IRT），以及怎样缓解正在发生的故障。</p>
+
+</dd>
+<dt><a href="https://goo.gle/enterprise-roadmap-to-sre">Enterprise Roadmap to SRE</a></dt>
+<dt class="zh" lang="zh-CN"><a href="https://goo.gle/enterprise-roadmap-to-sre">Enterprise Roadmap to SRE</a></dt>
+
+<dd>
+<p>Provides a step-by-step approach for integrating the SRE
+function into an 
+<span class="keep-together">organization.</span></p>
+<p class="zh" lang="zh-CN">一步步讲解怎样在组织里建立 SRE 职能。</p>
+
+</dd>
+</dl>
+</div></section>
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Practitioners: Technical Implementation and Operations"><div class="sect2" id="preface_the_practitioner_technical_implementation_and_operations">
+<h2>Practitioners: Technical Implementation and Operations</h2>
+<h2 class="zh" lang="zh-CN">从业者：技术实现与运维</h2>
+
+
+<p>We recommend the following resources for practitioners:</p>
+<p class="zh" lang="zh-CN">对于从业者，我们推荐以下资源：</p>
+
+<dl>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">Chapter 1, “Introduction: 
+<span class="keep-together">Modeling What We Do and Why</span>”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">第 1 章《引言：为我们的工作及其缘由建模》</a></dt>
+
+<dd>
+<p>Serves as a structural roadmap to
+orient the reader to the landscape of SRE concepts covered in this book.</p>
+<p class="zh" lang="zh-CN">相当于全书的路线图，帮你对本书涉及的 SRE 概念先有个全局认识。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch08.html#ch08">Chapter 8, “Service Level Objectives”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch08.html#ch08">第 8 章《服务质量目标（SLO）》</a></dt>
+
+<dd>
+<p>Provides practical advice for defining service level indicators (SLIs), setting error
+budgets, writing alerting rules, and implementing
+client-side/per-customer monitoring.</p>
+<p class="zh" lang="zh-CN">给出实用建议：怎样定义服务质量指标（SLI）、设定错误预算、编写告警规则，以及怎样做客户端侧和按客户维度的监控。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch09.html#ch09">Chapter 9, “Observability and Monitoring”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch09.html#ch09">第 9 章《可观测性与监控》</a></dt>
+
+<dd>
+<p>Provides architectural guidance for
+building observability platforms, using OpenTelemetry, and instrumenting
+client-side telemetry.</p>
+<p class="zh" lang="zh-CN">从架构层面讲解怎样搭建可观测性平台、怎样使用 OpenTelemetry，以及怎样给客户端遥测埋点。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch10.html#ch10">Chapter 10, “Incident Management and On-Call”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch10.html#ch10">第 10 章《事故管理与 on-call 值班》</a></dt>
+
+<dd>
+<p>Discusses setting up on-call
+rotations, establishing IRTs, and mitigating
+live outages.</p>
+<p class="zh" lang="zh-CN">讨论怎样安排 on-call 轮值、组建 IRT，以及怎样缓解正在发生的故障。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch11.html#ch11">Chapter 11, “Learning from Incidents”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch11.html#ch11">第 11 章《从事故中学习》</a></dt>
+
+<dd>
+<p>Outlines the hands-on process of conducting
+blameless postmortems, layered reviews, and integrating systems thinking
+into daily operations.</p>
+<p class="zh" lang="zh-CN">介绍一套可以直接上手的流程：怎样做无指责的事后总结和分层复盘，怎样把系统思维带进日常运维。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch12.html#ch12">Chapter 12, “Safety Engineering for SRE 
+<span class="keep-together">with STPA and CAST</span>”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch12.html#ch12">第 12 章《用 STPA 与 CAST 为 SRE 做安全工程》</a></dt>
+
+<dd>
+<p>Takes a deep dive into applying the STAMP,
+STPA, and CAST frameworks for proactive hazard analysis and complex
+root-causing.</p>
+<p class="zh" lang="zh-CN">深入讲解怎样用 STAMP、STPA 和 CAST 框架提前分析危害，并找出复杂问题的根因。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch13.html#ch13">Chapter 13, “Automation and Tooling”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch13.html#ch13">第 13 章《自动化与工具》</a></dt>
+
+<dd>
+<p>Provides tactical frameworks for when and
+how to write automation, evaluating technical debt, and avoiding the
+“ironies of automation.”</p>
+<p class="zh" lang="zh-CN">给出一些实用框架，帮你判断什么时候该写自动化、怎么写，怎样评估技术债，以及怎样避开“自动化悖论”（Ironies of Automation）。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch14.html#ch14">Chapter 14, “Testing”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch14.html#ch14">第 14 章《测试》</a></dt>
+
+<dd>
+<p>Provides a roadmap for
+transforming testing from a mere pre-deployment gate into a proactive
+operational strategy, leveraging advanced techniques like
+testing in production, fault injection, and formal methods.</p>
+<p class="zh" lang="zh-CN">讲解怎样把测试从单纯的上线前关卡，变成主动的运维手段，用上生产环境测试、故障注入、形式化方法等高级技术。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch15.html#ch15">Chapter 15, “Capacity Planning”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch15.html#ch15">第 15 章《容量规划》</a></dt>
+
+<dd>
+<p>Offers technical guidance on load shedding, managing
+failure domains, resource pooling, and the mathematics of capacity
+efficiency.</p>
+<p class="zh" lang="zh-CN">从技术上讲解过载保护、故障域管理、资源池化，以及容量效率背后的数学。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch16.html#ch16">Chapter 16, “Data Management”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch16.html#ch16">第 16 章《数据管理》</a></dt>
+
+<dd>
+<p>Details specific strategies for data replication,
+differential versus incremental backups, checksumming, and restoring
+corrupted data.</p>
+<p class="zh" lang="zh-CN">详细介绍数据管理的几种具体策略：怎样做数据复制，差异备份和增量备份有什么不同，怎样用校验和检查数据，以及数据损坏后怎样恢复。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch17.html#ch17">Chapter 17, “Designing for Resilience”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch17.html#ch17">第 17 章《为韧性而设计》</a></dt>
+
+<dd>
+<p>Provides a technical view on implementing
+architectural failure domains, graceful degradation, adaptive
+throttling, and fallback mechanisms.</p>
+<p class="zh" lang="zh-CN">从技术角度讲解怎样在架构上实现故障域、优雅降级、自适应限流和回退机制。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch18.html#ch18">Chapter 18, “Platform Engineering in SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch18.html#ch18">第 18 章《SRE 中的平台工程》</a></dt>
+
+<dd>
+<p>Outlines how platform engineering in SRE can
+reduce cognitive load and improve reliability by shifting infrastructure
+complexity into “golden paths,” standardized policies, and curated
+self-service solutions.</p>
+<p class="zh" lang="zh-CN">讲平台工程怎样把基础设施的复杂度收进“黄金路径”、标准化策略和精选的自助服务里，从而降低认知负荷、提高可靠性。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch20.html#ch20">Chapter 20, “How SRE Supports AI”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch20.html#ch20">第 20 章《SRE 如何支撑 AI》</a></dt>
+
+<dd>
+<p>Focuses on the technical challenges of managing ML/AI
+workloads, such as TPU capacity planning, ML goodput, and building model
+qualification pipelines.</p>
+<p class="zh" lang="zh-CN">聚焦管理 ML/AI 工作负载时的技术难题，比如 TPU 容量规划、ML 有效吞吐（goodput），以及怎样搭建模型准入验证流水线。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch21.html#ch21">Chapter 21, “How AI Supports SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch21.html#ch21">第 21 章《AI 如何支撑 SRE》</a></dt>
+
+<dd>
+<p>Provides a framework for transitioning from
+deterministic automation to probabilistic “SRE AI,” while ensuring
+autonomous agents safely manage large-scale system complexity.</p>
+<p class="zh" lang="zh-CN">给出一套框架，帮你从确定性的自动化过渡到概率性的“SRE AI”，同时确保自主智能体能安全地应对大规模系统的复杂度。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch22.html#ch22">Chapter 22, “SRE in Diverse Environments”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch22.html#ch22">第 22 章《多样环境中的 SRE》</a></dt>
+
+<dd>
+<p>Offers pragmatic guides for solo SREs
+at startups and engineers navigating constrained, legacy, or heavily
+regulated environments.</p>
+<p class="zh" lang="zh-CN">为初创公司里单打独斗的 SRE，以及在资源受限、遗留系统多或监管严格的环境里工作的工程师，提供实用指南。</p>
+
+</dd>
+</dl>
+</div></section>
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Leaders: Strategy, Culture, and Organization"><div class="sect2" id="preface_the_leader_strategy_culture_and_organization">
+<h2>Leaders: Strategy, Culture, and Organization</h2>
+<h2 class="zh" lang="zh-CN">管理者：战略、文化与组织</h2>
+
+
+<p>We recommend the following resources for leaders:</p>
+<p class="zh" lang="zh-CN">对于管理者，我们推荐以下资源：</p>
+
+<dl>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">Chapter 1, “Introduction: 
+<span class="keep-together">Modeling What We Do and Why</span>”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch01.html#ch01">第 1 章《引言：为我们的工作及其缘由建模》</a></dt>
+
+<dd>
+<p>Serves as a structural roadmap to
+orient the reader to the landscape of SRE concepts covered in this book.</p>
+<p class="zh" lang="zh-CN">相当于全书的路线图，帮你对本书涉及的 SRE 概念先有个全局认识。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch02.html#ch02">Chapter 2, “The Value of Reliability”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch02.html#ch02">第 2 章《可靠性的价值》</a></dt>
+
+<dd>
+<p>Focuses on the business case for SRE, covering
+sublinear scaling, FinOps, and the financial/opportunity costs of
+unreliable systems.</p>
+<p class="zh" lang="zh-CN">讲清楚 SRE 在商业上为什么值得投入，内容包括次线性扩展、FinOps，以及系统不可靠带来的财务成本和机会成本。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch04.html#ch04">Chapter 4, “The Cultural Context of SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch04.html#ch04">第 4 章《SRE 的文化土壤》</a></dt>
+
+<dd>
+<p>Discusses some of the research behind
+adoption of SRE practices, in addition to psychological safety and how
+to foster a generative culture of learning and continuous improvement.</p>
+<p class="zh" lang="zh-CN">介绍关于 SRE 实践如何落地的一些研究，并讨论心理安全，以及怎样培养一种重视学习和持续改进的生成型文化。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch05.html#ch05">Chapter 5, “SRE Hiring, Training, and 
+<span class="keep-together">Career Management</span>”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch05.html#ch05">第 5 章《SRE 的招聘、培训与职业发展》</a></dt>
+
+<dd>
+<p>Provides guidance for
+recruiting, creating hiring pipelines, building onboarding programs, and
+managing retention.</p>
+<p class="zh" lang="zh-CN">讲解怎样招人、搭建招聘渠道、设计入职培养计划，以及怎样留住人才。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch06.html#ch06">Chapter 6, “Organizational Structures for SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch06.html#ch06">第 6 章《SRE 的组织架构》</a></dt>
+
+<dd>
+<p>Explores the strategic design of
+teams (centralized versus decentralized), maturity matrices, and how
+scorecards can factor into governing SRE performance.</p>
+<p class="zh" lang="zh-CN">讨论团队该怎样设计（集中式还是分散式）、成熟度矩阵，以及怎样用记分卡来管理 SRE 的绩效。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch07.html#ch07">Chapter 7, “SRE Engagement Models”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch07.html#ch07">第 7 章《SRE 的参与模式》</a></dt>
+
+<dd>
+<p>Details the strategic frameworks for how SRE
+teams interface with product development and how to negotiate those
+operational boundaries.</p>
+<p class="zh" lang="zh-CN">详细介绍 SRE 团队和产品研发团队怎样配合的框架，以及双方怎样商定运维职责的边界。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">Chapter 19, “SRE at the Tipping Point”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">第 19 章《处于转折点的 SRE》</a></dt>
+
+<dd>
+<p>Reflects on how AI is compressing the
+traditional software development lifecycle (SDLC) and what that means.</p>
+<p class="zh" lang="zh-CN">思考 AI 正在怎样压缩传统的软件开发生命周期（software development lifecycle, SDLC），以及这对我们意味着什么。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch21.html#ch21">Chapter 21, “How AI Supports SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch21.html#ch21">第 21 章《AI 如何支撑 SRE》</a></dt>
+
+<dd>
+<p>Presents a strategic vision for integrating AI into
+workflows, emphasizing maturity models, governance, and the
+organizational shift required for AI adoption.</p>
+<p class="zh" lang="zh-CN">描绘把 AI 融入日常工作流程的整体规划，重点讲成熟度模型、治理，以及引入 AI 时组织需要做出的转变。</p>
+
+</dd>
+<dt><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch23.html#ch23">Chapter 23, “Future of SRE”</a></dt>
+<dt class="zh" lang="zh-CN"><a data-type="xref" data-xrefstyle="chap-num-title" href="https://learning.oreilly.com/library/view/-/9798341607675/ch23.html#ch23">第 23 章《SRE 的未来》</a></dt>
+
+<dd>
+<p>Examines industry-wide strategic shifts, such as
+“shifting down” to platforms, treating risk as a leading indicator,
+and the evolving role of SREs in the era of AI.</p>
+<p class="zh" lang="zh-CN">分析整个行业正在发生的大方向转变，比如把职责“下沉”到平台、把风险当作先行指标，以及 AI 时代 SRE 角色的变化。</p>
+
+</dd>
+</dl>
+
+<p>We’ve put thought into learning paths for each of these audiences—please
+visit <a href="https://sre.google" class="bare"><em class="hyperlink">https://sre.google</em></a> to see them.</p>
+<p class="zh" lang="zh-CN">我们为上面每类读者都精心设计了学习路径，请访问 <a href="https://sre.google" class="bare"><em class="hyperlink">https://sre.google</em></a> 查看。</p>
+
+</div></section>
+</div></section>
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="Conventions Used in This Book"><div class="sect1" id="id821">
+<h1>Conventions Used in This Book</h1>
+<h1 class="zh" lang="zh-CN">本书所用的排版约定</h1>
+
+
+<p>The following typographical conventions are used in this book:</p>
+<p class="zh" lang="zh-CN">本书采用以下排版约定：</p>
+
+<dl>
+<dt><em>Italic</em></dt>
+<dt class="zh" lang="zh-CN"><em>斜体</em></dt>
+
+<dd>
+<p>Indicates new terms, URLs, email addresses, filenames, and file extensions</p>
+<p class="zh" lang="zh-CN">表示新术语、URL、电子邮件地址、文件名以及文件扩展名。</p>
+
+</dd>
+<dt><code translate="no">Constant width</code></dt>
+<dd>
+<p>Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords</p>
+<p class="zh" lang="zh-CN">用于程序清单，以及在段落中指代诸如变量名或函数名、数据库、数据类型、环境变量、语句与关键字等程序要素。</p>
+
+</dd>
+</dl>
+<div data-type="tip"><h6>Tip</h6>
+<h6 class="zh" lang="zh-CN">提示</h6>
+
+<p>This element signifies a tip or suggestion.</p>
+<p class="zh" lang="zh-CN">该图标表示一条提示或建议。</p>
+
+</div>
+<div data-type="note" epub:type="note"><h6>Note</h6>
+<h6 class="zh" lang="zh-CN">注意</h6>
+
+<p>This element signifies a general note.</p>
+<p class="zh" lang="zh-CN">该图标表示一条一般性说明。</p>
+
+</div>
+<div data-type="warning" epub:type="warning"><h6>Warning</h6>
+<h6 class="zh" lang="zh-CN">警告</h6>
+
+<p>This element indicates a warning or caution.</p>
+<p class="zh" lang="zh-CN">该图标表示一条警告或告诫。</p>
+
+</div>
+</div></section>
+
+
+
+
+
+
+<div data-type="footnotes"><p data-type="footnote" id="id995"><sup><a href="https://learning.oreilly.com/library/view/-/9798341607675/preface01.html#id995-marker">1</a></sup> But see <a data-type="xref" href="https://learning.oreilly.com/library/view/-/9798341607675/ch19.html#ch19">Chapter 19</a>  for some thoughts!</p></div></div></section></div>
+</div>
+</body>
+</html>
